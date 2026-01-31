@@ -1,14 +1,45 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Atom } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Always show navbar at the top
+            if (currentScrollY < 10) {
+                setIsVisible(true);
+            } else {
+                // Show navbar when scrolling up, hide when scrolling down
+                if (currentScrollY < lastScrollY) {
+                    setIsVisible(true);
+                } else {
+                    setIsVisible(false);
+                }
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [lastScrollY]);
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <nav
+            className={`fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
+                }`}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex-shrink-0">
@@ -38,9 +69,16 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 href="#contact"
-                                className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                                className="text-muted-foreground hover:text-foreground hover:bg-muted px-3 py-2 rounded-md text-sm font-medium transition-colors"
                             >
                                 Contact
+                            </Link>
+                            <Link
+                                href="/physics"
+                                className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-all shadow inline-flex items-center gap-2"
+                            >
+                                <Atom className="h-4 w-4" />
+                                Physics Hub
                             </Link>
                         </div>
                     </div>
@@ -93,9 +131,17 @@ export default function Navbar() {
                         <Link
                             href="#contact"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="bg-primary hover:bg-primary/90 text-primary-foreground block px-3 py-2 rounded-md text-base font-medium transition-colors"
+                            className="text-muted-foreground hover:text-foreground hover:bg-muted block px-3 py-2 rounded-md text-base font-medium transition-colors"
                         >
                             Contact
+                        </Link>
+                        <Link
+                            href="/physics"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="bg-primary hover:bg-primary/90 text-primary-foreground block px-3 py-2 rounded-md text-base font-medium transition-all shadow inline-flex items-center gap-2"
+                        >
+                            <Atom className="h-5 w-5" />
+                            Physics Hub
                         </Link>
                     </div>
                 </div>
