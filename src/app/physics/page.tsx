@@ -3,15 +3,41 @@
 import { Users, FileCheck, BarChart3, Home, Database, ClipboardCheck, TrendingUp, Atom, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
+
+type Student = {
+    id: number;
+    full_name: string;
+    batch_year: number | null;
+    phone_number: string | null;
+};
 
 export default function PhysicsHub() {
     const [activeSection, setActiveSection] = useState("dashboard");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [mounted, setMounted] = useState(false);
+    const [students, setStudents] = useState<Student[]>([]);
+    const [studentsLoading, setStudentsLoading] = useState(true);
+    const mounted = true;
 
-    // Trigger entrance animations after mount
     useEffect(() => {
-        setMounted(true);
+        const fetchStudents = async () => {
+            setStudentsLoading(true);
+            const { data, error } = await supabase
+                .from("students")
+                .select("id, full_name, batch_year, phone_number")
+                .order("id", { ascending: true });
+
+            if (error) {
+                console.error("Failed to fetch students:", error.message);
+                setStudents([]);
+            } else {
+                setStudents(data ?? []);
+            }
+
+            setStudentsLoading(false);
+        };
+
+        fetchStudents();
     }, []);
 
     const handleSectionChange = (section: string) => {
@@ -136,7 +162,7 @@ export default function PhysicsHub() {
                                 { icon: Users, label: "Active Students", value: "24", delay: "0ms" },
                                 { icon: ClipboardCheck, label: "Papers to Mark", value: "12", delay: "100ms" },
                                 { icon: TrendingUp, label: "Avg Performance", value: "87%", delay: "200ms" },
-                            ].map((stat, index) => {
+                            ].map((stat) => {
                                 const Icon = stat.icon;
                                 return (
                                     <div
@@ -204,16 +230,42 @@ export default function PhysicsHub() {
                             <p className="text-sm md:text-base text-muted-foreground">Manage your student records and track their progress</p>
                         </div>
 
-                        <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 md:p-12 shadow-sm">
-                            <div className="flex items-center justify-center h-64">
-                                <div className="text-center space-y-4">
-                                    <div className="inline-flex items-center justify-center p-6 bg-muted rounded-2xl">
-                                        <Database className="h-12 sm:h-16 w-12 sm:w-16 text-muted-foreground" />
+                        <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-sm">
+                            {studentsLoading ? (
+                                <p className="text-sm sm:text-base text-muted-foreground">Loading students...</p>
+                            ) : students.length === 0 ? (
+                                <div className="flex items-center justify-center h-40">
+                                    <div className="text-center space-y-3">
+                                        <div className="inline-flex items-center justify-center p-4 bg-muted rounded-xl">
+                                            <Database className="h-8 w-8 text-muted-foreground" />
+                                        </div>
+                                        <p className="text-sm sm:text-base text-muted-foreground">No students found in the database.</p>
                                     </div>
-                                    <h3 className="text-lg sm:text-xl font-semibold text-foreground">Student Management System</h3>
-                                    <p className="text-muted-foreground max-w-md text-sm sm:text-base">Student database functionality coming soon. Track attendance, performance, and personalized learning paths.</p>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="overflow-x-auto">
+                                    <table className="w-full min-w-[640px] text-sm">
+                                        <thead>
+                                            <tr className="border-b border-border text-left">
+                                                <th className="py-3 pr-4 font-semibold text-foreground">ID</th>
+                                                <th className="py-3 pr-4 font-semibold text-foreground">Full Name</th>
+                                                <th className="py-3 pr-4 font-semibold text-foreground">Batch Year</th>
+                                                <th className="py-3 font-semibold text-foreground">Phone Number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {students.map((student) => (
+                                                <tr key={student.id} className="border-b border-border/60 last:border-b-0">
+                                                    <td className="py-3 pr-4 text-muted-foreground">{student.id}</td>
+                                                    <td className="py-3 pr-4 text-foreground">{student.full_name}</td>
+                                                    <td className="py-3 pr-4 text-muted-foreground">{student.batch_year ?? "-"}</td>
+                                                    <td className="py-3 text-muted-foreground">{student.phone_number ?? "-"}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}
