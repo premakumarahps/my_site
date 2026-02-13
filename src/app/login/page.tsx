@@ -1,19 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Chrome, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
-export default function LoginPage() {
+function LoginCard() {
   const searchParams = useSearchParams();
+  const callbackError = searchParams.get("error");
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(
-    searchParams.get("error")
-  );
+  const [actionError, setActionError] = useState<string | null>(null);
+  const errorMessage = actionError ?? callbackError;
 
   const handleGoogleSignIn = async () => {
-    setErrorMessage(null);
+    setActionError(null);
     setIsLoading(true);
 
     const { error } = await supabase.auth.signInWithOAuth({
@@ -24,7 +24,7 @@ export default function LoginPage() {
     });
 
     if (error) {
-      setErrorMessage(error.message);
+      setActionError(error.message);
       setIsLoading(false);
     }
   };
@@ -63,5 +63,24 @@ export default function LoginPage() {
         ) : null}
       </div>
     </main>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+          <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-sm">
+            <div className="inline-flex items-center gap-2 text-muted-foreground text-sm">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Loading...
+            </div>
+          </div>
+        </main>
+      }
+    >
+      <LoginCard />
+    </Suspense>
   );
 }
