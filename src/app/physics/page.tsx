@@ -42,11 +42,11 @@ export default function PhysicsHub() {
         <div className="min-h-screen bg-background text-foreground">
             {/* Mobile Header with Hamburger */}
             <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-card/95 backdrop-blur-md border-b border-border flex items-center justify-between px-4 z-50">
-                <div className="flex items-center gap-2">
+                <div className={`flex items-center gap-2 transition-opacity duration-300 ${mobileMenuOpen ? "opacity-0 invisible" : "opacity-100 visible"}`}>
                     <div className="p-2 bg-primary/10 rounded-lg">
                         <Atom className="h-5 w-5 text-primary" />
                     </div>
-                    <h1 className="text-lg font-bold text-foreground">Physics Hub</h1>
+                    <h1 className="text-lg font-bold text-foreground">The Axiom</h1>
                 </div>
                 <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -87,7 +87,7 @@ export default function PhysicsHub() {
                         </div>
                         <div>
                             <h1 className="text-xl font-bold text-foreground">
-                                Physics Hub
+                                The Axiom
                             </h1>
                             <p className="text-muted-foreground text-xs">Consulting Dashboard</p>
                         </div>
@@ -102,8 +102,8 @@ export default function PhysicsHub() {
                                 key={item.id}
                                 onClick={() => handleSectionChange(item.id)}
                                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-medium text-sm min-h-[48px] ${activeSection === item.id
-                                        ? "bg-primary text-primary-foreground shadow-md"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                                    ? "bg-primary text-primary-foreground shadow-md"
+                                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
                                     }`}
                             >
                                 <Icon className="h-5 w-5" />
@@ -127,7 +127,7 @@ export default function PhysicsHub() {
                     <div className={`transition-all duration-500 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
                         <div className="mb-6 md:mb-8">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2">Dashboard Overview</h2>
-                            <p className="text-sm md:text-base text-muted-foreground">Welcome to your Physics Hub consulting platform</p>
+                            <p className="text-sm md:text-base text-muted-foreground">Welcome to your The Axiom consulting platform</p>
                         </div>
 
                         <div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mb-6 md:mb-8">

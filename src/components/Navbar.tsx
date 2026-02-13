@@ -103,8 +103,8 @@ export default function Navbar() {
                                         key={link.label}
                                         href={link.href}
                                         className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isActiveLink(link.section)
-                                                ? "text-primary bg-primary/10"
-                                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                                            ? "text-primary bg-primary/10"
+                                            : "text-muted-foreground hover:text-foreground hover:bg-muted"
                                             }`}
                                     >
                                         {link.label}
@@ -115,7 +115,7 @@ export default function Navbar() {
                                     className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-all shadow hover:shadow-lg hover:shadow-primary/20 inline-flex items-center gap-2 hover-glow"
                                 >
                                     <Atom className="h-4 w-4" />
-                                    Physics Hub
+                                    The Axiom
                                 </Link>
                             </div>
                         </div>
@@ -159,8 +159,8 @@ export default function Navbar() {
             {/* Mobile menu panel */}
             <div
                 className={`md:hidden fixed top-16 left-0 right-0 bg-background border-b border-border z-40 transition-all duration-300 ease-out ${mobileMenuOpen
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 -translate-y-4 pointer-events-none"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 -translate-y-4 pointer-events-none"
                     }`}
             >
                 <div className="px-4 pt-2 pb-4 space-y-1">
@@ -170,8 +170,8 @@ export default function Navbar() {
                             href={link.href}
                             onClick={() => setMobileMenuOpen(false)}
                             className={`block px-4 py-3 rounded-md text-base font-medium transition-all min-h-[48px] flex items-center ${isActiveLink(link.section)
-                                    ? "text-primary bg-primary/10"
-                                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                                ? "text-primary bg-primary/10"
+                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
                                 }`}
                             style={{ animationDelay: `${index * 50}ms` }}
                         >
@@ -184,7 +184,7 @@ export default function Navbar() {
                         className="bg-primary hover:bg-primary/90 text-primary-foreground block px-4 py-3 rounded-md text-base font-medium transition-all shadow inline-flex items-center gap-2 min-h-[48px] mt-2"
                     >
                         <Atom className="h-5 w-5" />
-                        Physics Hub
+                        The Axiom
                     </Link>
                 </div>
             </div>
