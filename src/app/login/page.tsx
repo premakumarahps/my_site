@@ -3,7 +3,51 @@
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Chrome, Loader2 } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+const getCookieValue = (key: string) => {
+  const encodedKey = encodeURIComponent(key);
+  const parts = document.cookie.split("; ");
+  const match = parts.find((part) => part.startsWith(`${encodedKey}=`));
+
+  if (!match) {
+    return null;
+  }
+
+  return decodeURIComponent(match.slice(encodedKey.length + 1));
+};
+
+const setCookieValue = (key: string, value: string) => {
+  const secure = window.location.protocol === "https:" ? "; Secure" : "";
+  document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}; Path=/; Max-Age=3600; SameSite=Lax${secure}`;
+};
+
+const removeCookieValue = (key: string) => {
+  const secure = window.location.protocol === "https:" ? "; Secure" : "";
+  document.cookie = `${encodeURIComponent(key)}=; Path=/; Max-Age=0; SameSite=Lax${secure}`;
+};
+
+const createBrowserAuthClient = () => {
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error("Missing Supabase environment variables");
+  }
+
+  return createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      flowType: "pkce",
+      detectSessionInUrl: false,
+      persistSession: true,
+      storage: {
+        getItem: (key) => getCookieValue(key),
+        setItem: (key, value) => setCookieValue(key, value),
+        removeItem: (key) => removeCookieValue(key),
+      },
+    },
+  });
+};
 
 function LoginCard() {
   const searchParams = useSearchParams();
@@ -16,7 +60,17 @@ function LoginCard() {
     setActionError(null);
     setIsLoading(true);
 
-    const { error } = await supabase.auth.signInWithOAuth({
+    let authClient;
+
+    try {
+      authClient = createBrowserAuthClient();
+    } catch (error) {
+      setActionError(error instanceof Error ? error.message : "Unable to initialize auth client");
+      setIsLoading(false);
+      return;
+    }
+
+    const { error } = await authClient.auth.signInWithOAuth({
       provider: "google",
       options: {
         redirectTo: `${window.location.origin}/auth/callback`,

@@ -8,42 +8,110 @@ type ProfileRecord = {
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
+const createLoginErrorUrl = (origin: string, message: string) => {
+  const errorUrl = new URL("/login", origin);
+  errorUrl.searchParams.set("error", message);
+  return errorUrl;
+};
+
+const createRedirectResponse = (
+  requestUrl: URL,
+  pathname: string,
+  pendingSet: Map<string, string>,
+  pendingRemove: Set<string>
+) => {
+  const response = NextResponse.redirect(new URL(pathname, requestUrl.origin));
+  const secure = requestUrl.protocol === "https:";
+
+  for (const [key, value] of pendingSet) {
+    response.cookies.set(key, value, {
+      path: "/",
+      sameSite: "lax",
+      secure,
+      httpOnly: false,
+    });
+  }
+
+  for (const key of pendingRemove) {
+    response.cookies.set(key, "", {
+      path: "/",
+      maxAge: 0,
+      sameSite: "lax",
+      secure,
+      httpOnly: false,
+    });
+  }
+
+  return response;
+};
+
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get("code");
-  const oauthError = requestUrl.searchParams.get("error_description");
+  const oauthError =
+    requestUrl.searchParams.get("error_description") ??
+    requestUrl.searchParams.get("error");
 
   if (oauthError) {
-    const errorUrl = new URL("/login", requestUrl.origin);
-    errorUrl.searchParams.set("error", oauthError);
-    return NextResponse.redirect(errorUrl);
+    return NextResponse.redirect(createLoginErrorUrl(requestUrl.origin, oauthError));
   }
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    const errorUrl = new URL("/login", requestUrl.origin);
-    errorUrl.searchParams.set("error", "Missing Supabase environment variables");
-    return NextResponse.redirect(errorUrl);
+    return NextResponse.redirect(
+      createLoginErrorUrl(requestUrl.origin, "Missing Supabase environment variables")
+    );
   }
 
   if (!code) {
-    const errorUrl = new URL("/login", requestUrl.origin);
-    errorUrl.searchParams.set("error", "Missing OAuth code");
-    return NextResponse.redirect(errorUrl);
+    return NextResponse.redirect(new URL("/login", requestUrl.origin));
   }
 
-  const supabase = createClient(supabaseUrl, supabaseAnonKey);
+  const pendingSet = new Map<string, string>();
+  const pendingRemove = new Set<string>();
+
+  const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      flowType: "pkce",
+      detectSessionInUrl: false,
+      persistSession: true,
+      storage: {
+        getItem: (key) => {
+          if (pendingRemove.has(key)) {
+            return null;
+          }
+
+          const pendingValue = pendingSet.get(key);
+          if (pendingValue !== undefined) {
+            return pendingValue;
+          }
+
+          return request.cookies.get(key)?.value ?? null;
+        },
+        setItem: (key, value) => {
+          pendingSet.set(key, value);
+          pendingRemove.delete(key);
+        },
+        removeItem: (key) => {
+          pendingSet.delete(key);
+          pendingRemove.add(key);
+        },
+      },
+    },
+  });
+
   const { data: authData, error: authError } = await supabase.auth.exchangeCodeForSession(code);
 
   if (authError || !authData.session?.user) {
-    const errorUrl = new URL("/login", requestUrl.origin);
-    errorUrl.searchParams.set(
-      "error",
-      authError?.message ?? "Failed to exchange auth code for session"
+    return NextResponse.redirect(
+      createLoginErrorUrl(
+        requestUrl.origin,
+        authError?.message ?? "Failed to exchange auth code for session"
+      )
     );
-    return NextResponse.redirect(errorUrl);
   }
 
   const userId = authData.session.user.id;
+  let redirectPath = "/student/dashboard";
 
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
@@ -51,20 +119,13 @@ export async function GET(request: NextRequest) {
     .eq("id", userId)
     .maybeSingle<ProfileRecord>();
 
-  if (profileError) {
-    const errorUrl = new URL("/login", requestUrl.origin);
-    errorUrl.searchParams.set("error", "Unable to load profile");
-    return NextResponse.redirect(errorUrl);
+  if (!profileError) {
+    if (!profile) {
+      redirectPath = "/onboarding";
+    } else if (profile.role === "admin") {
+      redirectPath = "/admin/dashboard";
+    }
   }
 
-  if (!profile) {
-    return NextResponse.redirect(new URL("/onboarding", requestUrl.origin));
-  }
-
-  if (profile.role === "admin") {
-    return NextResponse.redirect(new URL("/admin/dashboard", requestUrl.origin));
-  }
-
-  return NextResponse.redirect(new URL("/student/dashboard", requestUrl.origin));
+  return createRedirectResponse(requestUrl, redirectPath, pendingSet, pendingRemove);
 }
-
