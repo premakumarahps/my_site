@@ -1,13 +1,12 @@
-"use client";
+import { Inter } from "next/font/google";
+import type { ReactNode } from "react";
 
-import { Users, FileCheck, BarChart3, Home, Database, ClipboardCheck, TrendingUp, Atom } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
+const inter = Inter({ subsets: ["latin"] });
 
 export default function PhysicsHubLayout({
     children,
 }: {
-    children: React.ReactNode;
+    children: ReactNode;
 }) {
-    return <>{children}</>;
+    return <div className={inter.className}>{children}</div>;
 }

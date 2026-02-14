@@ -111,7 +111,7 @@ export default function Navbar() {
                                     </Link>
                                 ))}
                                 <Link
-                                    href="/physics"
+                                    href="/login"
                                     className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-all shadow hover:shadow-lg hover:shadow-primary/20 inline-flex items-center gap-2 hover-glow"
                                 >
                                     <Atom className="h-4 w-4" />
@@ -179,7 +179,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <Link
-                        href="/physics"
+                        href="/login"
                         onClick={() => setMobileMenuOpen(false)}
                         className="bg-primary hover:bg-primary/90 text-primary-foreground block px-4 py-3 rounded-md text-base font-medium transition-all shadow inline-flex items-center gap-2 min-h-[48px] mt-2"
                     >

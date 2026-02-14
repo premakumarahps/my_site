@@ -83,7 +83,7 @@ export default function Home() {
                 I am a final-year <strong className="text-foreground">Materials Science & Engineering</strong> student at the University of Moratuwa (UoM) with over 5 years of experience in Physics education.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                My teaching philosophy is simple: <span className="text-primary italic">"First Principles over Formulas."</span>
+                My teaching philosophy is simple: <span className="text-primary italic">&quot;First Principles over Formulas.&quot;</span>
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 I believe that understanding the core engineering logic behind physical phenomena is far more powerful than rote memorization. Whether you are preparing for Advanced Levels or seeking a deeper understanding of the physical world, I guide you to think like an engineer.
