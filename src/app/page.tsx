@@ -197,7 +197,9 @@ export default function Home() {
 
           <div className="flex gap-4">
             <Link
-              href="#"
+              href="https://www.linkedin.com/in/sandun-preamakumara"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-all p-2 hover:bg-primary/10 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="LinkedIn Profile"
             >

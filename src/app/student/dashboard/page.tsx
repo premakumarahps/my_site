@@ -4,9 +4,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { GraduationCap, LogOut, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 
 export default function StudentDashboardPage() {
   const router = useRouter();
+  const { isLoading } = useAuthGuard({ requiredRole: "student" });
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const handleLogout = async () => {
@@ -14,6 +16,17 @@ export default function StudentDashboardPage() {
     await supabase.auth.signOut();
     router.replace("/login");
   };
+
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+        <div className="inline-flex items-center gap-2 text-muted-foreground">
+          <Loader2 className="h-4 w-4 animate-spin" />
+          Verifying access...
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">

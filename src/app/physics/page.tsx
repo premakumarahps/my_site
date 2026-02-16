@@ -1,9 +1,10 @@
 "use client";
 
-import { Users, FileCheck, BarChart3, Home, Database, ClipboardCheck, TrendingUp, Atom, Menu, X } from "lucide-react";
+import { Users, FileCheck, BarChart3, Home, Database, ClipboardCheck, TrendingUp, Atom, Menu, X, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 
 type Student = {
     id: number;
@@ -13,6 +14,7 @@ type Student = {
 };
 
 export default function PhysicsHub() {
+    const { isLoading: isAuthLoading } = useAuthGuard();
     const [activeSection, setActiveSection] = useState("dashboard");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [students, setStudents] = useState<Student[]>([]);
@@ -20,6 +22,8 @@ export default function PhysicsHub() {
     const mounted = true;
 
     useEffect(() => {
+        if (isAuthLoading) return;
+
         const fetchStudents = async () => {
             setStudentsLoading(true);
             const { data, error } = await supabase
@@ -38,11 +42,11 @@ export default function PhysicsHub() {
         };
 
         fetchStudents();
-    }, []);
+    }, [isAuthLoading]);
 
     const handleSectionChange = (section: string) => {
         setActiveSection(section);
-        setMobileMenuOpen(false); // Close mobile menu when section changes
+        setMobileMenuOpen(false);
     };
 
     // Prevent body scroll when mobile menu is open
@@ -63,6 +67,17 @@ export default function PhysicsHub() {
         { id: "marking", label: "Paper Marking", icon: FileCheck },
         { id: "analytics", label: "Analytics", icon: BarChart3 },
     ];
+
+    if (isAuthLoading) {
+        return (
+            <main className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+                <div className="inline-flex items-center gap-2 text-muted-foreground">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Verifying access...
+                </div>
+            </main>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-background text-foreground">
