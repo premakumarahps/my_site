@@ -14,7 +14,7 @@ type Student = {
 };
 
 export default function PhysicsHub() {
-    const { isLoading: isAuthLoading } = useAuthGuard();
+    const { isLoading: isAuthLoading } = useAuthGuard({ requiredRole: "admin" });
     const [activeSection, setActiveSection] = useState("dashboard");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [students, setStudents] = useState<Student[]>([]);

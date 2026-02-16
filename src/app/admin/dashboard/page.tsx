@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ShieldCheck, LogOut, Loader2 } from "lucide-react";
+import Link from "next/link";
+import { ShieldCheck, LogOut, Loader2, Atom } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { useAuthGuard } from "@/hooks/useAuthGuard";
 
@@ -43,24 +44,34 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={handleLogout}
-          disabled={isLoggingOut}
-          className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          {isLoggingOut ? (
-            <>
-              <Loader2 className="h-4 w-4 animate-spin" />
-              Logging out...
-            </>
-          ) : (
-            <>
-              <LogOut className="h-4 w-4" />
-              Log Out
-            </>
-          )}
-        </button>
+        <div className="space-y-3">
+          <Link
+            href="/physics"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 shadow hover:shadow-lg hover:shadow-primary/20"
+          >
+            <Atom className="h-4 w-4" />
+            Open Physics Hub (The Axiom)
+          </Link>
+
+          <button
+            type="button"
+            onClick={handleLogout}
+            disabled={isLoggingOut}
+            className="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm font-semibold text-card-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {isLoggingOut ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Logging out...
+              </>
+            ) : (
+              <>
+                <LogOut className="h-4 w-4" />
+                Log Out
+              </>
+            )}
+          </button>
+        </div>
       </section>
     </main>
   );
