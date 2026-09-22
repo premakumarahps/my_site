@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import LayoutChrome from "@/components/LayoutChrome";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Sandun Preamakumara | Physics Consultant",
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen bg-background text-foreground antialiased selection:bg-blue-500/30">
         <LayoutChrome>{children}</LayoutChrome>
+        <Analytics />
       </body>
     </html>
   );
