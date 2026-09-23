@@ -39,7 +39,7 @@ export default function Navbar() {
 
     // Track active section using Intersection Observer
     useEffect(() => {
-        const sections = ["about", "experience", "skills", "portfolio", "classes", "contact"];
+        const sections = ["about", "skills", "portfolio", "experience", "classes", "contact"];
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -75,9 +75,9 @@ export default function Navbar() {
     const navLinks = [
         { href: "/", label: "Home", section: "" },
         { href: "#about", label: "About", section: "about" },
-        { href: "#experience", label: "Experience", section: "experience" },
         { href: "#skills", label: "Arsenal", section: "skills" },
         { href: "#portfolio", label: "Portfolio", section: "portfolio" },
+        { href: "#experience", label: "Experience", section: "experience" },
         { href: "#classes", label: "Classes", section: "classes" },
         { href: "#contact", label: "Contact", section: "contact" },
     ];

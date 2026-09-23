@@ -4,9 +4,9 @@ import LayoutChrome from "@/components/LayoutChrome";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: "Sandun Preamakumara | Physics Consultant",
+  title: "Sadun Premakumara | Materials Science & Engineering",
   description:
-    "Teaching Physics through First Principles and Engineering Logic. Materials Science & Engineering Undergraduate at UoM.",
+    "Materials Science & Engineering Graduate (University of Moratuwa). Specializing in physical metallurgy, continuum FEA simulations, sustainable composites, and scientific Python computing.",
 };
 
 export const viewport: Viewport = {

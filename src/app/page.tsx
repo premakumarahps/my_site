@@ -50,24 +50,24 @@ export default function Home() {
                 className="object-cover object-top"
               />
             </div>
-            <span>Materials Engineer &amp; Physics Consultant</span>
+            <span>Materials Science &amp; Engineering Graduate</span>
             <span className="text-primary/40 hidden sm:inline">|</span>
             <span className="text-foreground/80 font-normal text-xs hidden sm:inline">University of Moratuwa</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-tight animate-fade-in-up delay-100 min-h-[1.25em]">
-            Physics.{" "}
+            Materials Science.{" "}
             <ComfortableTypewriter
-              words={["Engineered.", "Simulated.", "Demystified.", "Architected.", "Applied."]}
+              words={["Engineered.", "Simulated.", "Characterized.", "Synthesized.", "Optimized."]}
               className="text-primary"
               cursorClassName="h-[0.8em]"
               pauseDuration={2800}
             />
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200">
-            Bridging the gap between Abstract Theory, Material Reality, and Modern AI Systems.
-            Engineering solutions through first principles, continuum simulations, and systems architecture.
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+            Engineering advanced metallurgical systems, continuum mechanics, and sustainable composites from first principles.
+            Leveraging scientific Python, Abaqus FEA, and computational algorithms to bridge physical material science with modern computational precision.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in-up delay-300">
@@ -75,7 +75,7 @@ export default function Home() {
               href="#portfolio"
               className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary hover-glow min-h-[48px]"
             >
-              Explore Portfolio
+              Explore Materials Portfolio
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link
@@ -102,28 +102,45 @@ export default function Home() {
               </h2>
               <div className="luxury-divider" />
               <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-                I am a <strong className="text-foreground">Materials Science & Engineering Graduate</strong> from the University of Moratuwa (UoM) with over 5 years of experience in high-impact Physics education and systems design.
+                I am a <strong className="text-foreground">Materials Science & Engineering Graduate</strong> from the University of Moratuwa (UoM), specializing in physical metallurgy, continuum mechanics, and sustainable composite synthesis.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                My engineering philosophy is simple: <span className="text-primary italic font-medium">&quot;First Principles over Formulas.&quot;</span>
+                My engineering philosophy is rooted in rigorous physical fundamentals: <span className="text-primary italic font-medium">&quot;Microstructure dictates properties, first principles govern design.&quot;</span>
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Whether simulating non-linear continuum contact mechanics in Abaqus, synthesizing sustainable composite mortars, automating geotechnical data processing via Python algorithms, or deploying serverless cloud web apps—I leverage rigorous engineering logic alongside modern AI acceleration.
+                Whether engineering Super Duplex stainless steel marine propulsion shafts, synthesizing pozzolanic rice-husk-ash composite mortars, simulating non-linear elasto-plastic contact mechanics in Abaqus, or conducting industrial QA/QC testing under ASTM/SLS protocols—my focus is delivering robust, fail-safe physical engineering solutions.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Computational Multiplier:</strong> To supercharge materials engineering, I leverage code as an analytical accelerator—writing automated Python algorithms for geotechnical layer stratification, coding Arrhenius kinetic solvers, and building modern educational web applications.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3 pt-2">
                 <div className="flex items-center gap-3 text-muted-foreground bg-card/90 px-4 py-3 rounded-2xl border border-border/80 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default">
                   <GraduationCap className="h-5 w-5 text-primary shrink-0" />
                   <div className="text-xs sm:text-sm">
-                    <p className="font-semibold text-foreground">UoM Materials Engineer</p>
-                    <p className="text-muted-foreground text-[11px]">B.Sc. Eng (Hons) Degree</p>
+                    <p className="font-semibold text-foreground">Materials &amp; Metallurgy</p>
+                    <p className="text-muted-foreground text-[11px]">UoM B.Sc. Eng (Hons) Degree</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 text-muted-foreground bg-card/90 px-4 py-3 rounded-2xl border border-border/80 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default">
+                  <Atom className="h-5 w-5 text-primary shrink-0" />
+                  <div className="text-xs sm:text-sm">
+                    <p className="font-semibold text-foreground">FEA &amp; Continuum Simulation</p>
+                    <p className="text-muted-foreground text-[11px]">Abaqus · Solid Edge · COMSOL</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground bg-card/90 px-4 py-3 rounded-2xl border border-border/80 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default">
                   <User className="h-5 w-5 text-primary shrink-0" />
                   <div className="text-xs sm:text-sm">
-                    <p className="font-semibold text-foreground">EdTech & Mentorship</p>
-                    <p className="text-muted-foreground text-[11px]">5+ Years Lead Educator</p>
+                    <p className="font-semibold text-foreground">5+ Yrs Physics Pedagogy</p>
+                    <p className="text-muted-foreground text-[11px]">Physics Academy Lead Mentor</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 text-muted-foreground bg-card/90 px-4 py-3 rounded-2xl border border-border/80 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default">
+                  <ArrowRight className="h-5 w-5 text-primary shrink-0" />
+                  <div className="text-xs sm:text-sm">
+                    <p className="font-semibold text-foreground">Computational Code</p>
+                    <p className="text-muted-foreground text-[11px]">Scientific Python · Automation</p>
                   </div>
                 </div>
               </div>
@@ -137,19 +154,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Professional Journey (Timeline) */}
-      <div className="w-full scroll-mt-20">
-        <ProfessionalExperience />
-      </div>
-
-      {/* Engineering Arsenal (Skills Matrix) */}
+      {/* Engineering Arsenal (Skills Matrix) - Materials Science Leads */}
       <div className="w-full scroll-mt-20">
         <SkillsMatrix />
       </div>
 
-      {/* Technical Portfolio (Tabs & Deep-Dive Modals) */}
+      {/* Technical Portfolio (Tabs & Deep-Dive Modals) - Materials Tab Active by Default */}
       <div className="w-full scroll-mt-20">
         <PortfolioTabs />
+      </div>
+
+      {/* Professional Journey (Timeline) */}
+      <div className="w-full scroll-mt-20">
+        <ProfessionalExperience />
       </div>
 
       {/* Services/Classes Section */}

@@ -24,7 +24,7 @@ interface TabOption {
 }
 
 export default function PortfolioTabs() {
-  const [activeTab, setActiveTab] = useState<CategoryTab>("software");
+  const [activeTab, setActiveTab] = useState<CategoryTab>("materials");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   // Close modal on ESC
@@ -46,28 +46,28 @@ export default function PortfolioTabs() {
 
   const tabs: TabOption[] = [
     {
-      id: "software",
-      label: "Software & Web",
-      icon: Code,
-      count: PROJECTS_DATA.filter((p) => p.category === "software").length,
-    },
-    {
-      id: "iot",
-      label: "IoT & Hardware",
-      icon: Cpu,
-      count: PROJECTS_DATA.filter((p) => p.category === "iot").length,
-    },
-    {
       id: "materials",
-      label: "Materials & Simulation",
+      label: "Materials & Metallurgy",
       icon: Layers,
       count: PROJECTS_DATA.filter((p) => p.category === "materials").length,
     },
     {
       id: "mechanical",
-      label: "Mechanical Design",
+      label: "Mechanical & Structural",
       icon: Cog,
       count: PROJECTS_DATA.filter((p) => p.category === "mechanical").length,
+    },
+    {
+      id: "software",
+      label: "Computational Tools",
+      icon: Code,
+      count: PROJECTS_DATA.filter((p) => p.category === "software").length,
+    },
+    {
+      id: "iot",
+      label: "IoT & Instrumentation",
+      icon: Cpu,
+      count: PROJECTS_DATA.filter((p) => p.category === "iot").length,
     },
   ];
 
