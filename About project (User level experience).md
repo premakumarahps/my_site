@@ -55,4 +55,4 @@ my_site/
 - `src/components/LayoutChrome.tsx` renders the `Navbar` and wraps content with top padding.
 - `src/components/Navbar.tsx` includes:
   - In-page anchors: `Home` (`/`), `About` (`#about`), `Classes` (`#classes`), `Contact` (`#contact`).
-  - **The Axiom** CTA button: Links directly to [AL Physics Academy](https://physics-academy.vercel.app/) (`target="_blank" rel="noopener noreferrer"`).
+  - **Physics Academy** CTA button: Links directly to [AL Physics Academy](https://physics-academy.vercel.app/) (`target="_blank" rel="noopener noreferrer"`).
