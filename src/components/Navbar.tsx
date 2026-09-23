@@ -38,7 +38,7 @@ export default function Navbar() {
 
     // Track active section using Intersection Observer
     useEffect(() => {
-        const sections = ["about", "classes", "contact"];
+        const sections = ["about", "experience", "skills", "portfolio", "classes", "contact"];
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -48,7 +48,7 @@ export default function Navbar() {
                     }
                 });
             },
-            { threshold: 0.3, rootMargin: "-80px 0px -50% 0px" }
+            { threshold: 0.25, rootMargin: "-80px 0px -40% 0px" }
         );
 
         sections.forEach((id) => {
@@ -74,6 +74,9 @@ export default function Navbar() {
     const navLinks = [
         { href: "/", label: "Home", section: "" },
         { href: "#about", label: "About", section: "about" },
+        { href: "#experience", label: "Experience", section: "experience" },
+        { href: "#skills", label: "Arsenal", section: "skills" },
+        { href: "#portfolio", label: "Portfolio", section: "portfolio" },
         { href: "#classes", label: "Classes", section: "classes" },
         { href: "#contact", label: "Contact", section: "contact" },
     ];
@@ -91,18 +94,18 @@ export default function Navbar() {
                         <div className="flex-shrink-0">
                             <Link
                                 href="/"
-                                className="text-xl font-bold text-foreground tracking-wider transition-colors hover:text-primary"
+                                className="text-lg sm:text-xl font-bold text-foreground tracking-wider transition-colors hover:text-primary"
                             >
                                 SANDUN<span className="text-primary">.ENG</span>
                             </Link>
                         </div>
                         <div className="hidden md:block">
-                            <div className="ml-10 flex items-baseline space-x-2">
+                            <div className="ml-4 lg:ml-8 flex items-center space-x-1 lg:space-x-2">
                                 {navLinks.map((link) => (
                                     <Link
                                         key={link.label}
                                         href={link.href}
-                                        className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isActiveLink(link.section)
+                                        className={`px-2.5 lg:px-3.5 py-1.5 rounded-md text-xs lg:text-sm font-medium transition-all duration-200 ${isActiveLink(link.section)
                                             ? "text-primary bg-primary/10"
                                             : "text-muted-foreground hover:text-foreground hover:bg-muted"
                                             }`}
@@ -114,10 +117,10 @@ export default function Navbar() {
                                     href="https://physics-academy.vercel.app/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-all shadow hover:shadow-lg hover:shadow-primary/20 inline-flex items-center gap-2 hover-glow"
+                                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 lg:px-4 py-1.5 rounded-md text-xs lg:text-sm font-medium transition-all shadow hover:shadow-lg hover:shadow-primary/20 inline-flex items-center gap-1.5 hover-glow ml-2"
                                 >
                                     <Atom className="h-4 w-4" />
-                                    Physics Academy
+                                    <span>Physics Academy</span>
                                 </Link>
                             </div>
                         </div>
