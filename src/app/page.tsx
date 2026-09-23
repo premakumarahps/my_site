@@ -30,7 +30,9 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen">
       {/* Hero Section */}
       <section className="relative w-full py-16 sm:py-20 md:py-32 overflow-hidden flex flex-col items-center text-center px-4">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[300px] md:h-[500px] bg-primary/20 rounded-full blur-[100px] -z-10 opacity-30 pointer-events-none animate-float" />
+        {/* Google-Grade Ambient Morphing Mesh Orbs */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] md:w-[900px] h-[350px] md:h-[480px] bg-primary/20 rounded-full blur-[110px] -z-10 opacity-40 pointer-events-none animate-mesh-float" />
+        <div className="absolute top-28 left-1/3 -translate-x-1/2 w-[400px] md:w-[600px] h-[280px] md:h-[380px] bg-emerald-500/15 rounded-full blur-[100px] -z-10 opacity-30 pointer-events-none animate-mesh-float-reverse" />
 
         <div className="space-y-6 max-w-4xl mx-auto">
           <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm animate-fade-in-down">

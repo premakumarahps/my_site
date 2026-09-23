@@ -71,7 +71,7 @@ export default function SkillsMatrix() {
                   {pillar.skills.map((skill) => (
                     <span
                       key={skill.name}
-                      className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-background border border-border text-foreground hover:border-primary/60 hover:bg-primary/5 transition-all cursor-default"
+                      className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-background border border-border text-foreground hover:border-primary/60 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-200 cursor-default"
                     >
                       <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2 shrink-0" />
                       {skill.name}

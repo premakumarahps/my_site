@@ -43,8 +43,8 @@ export default function ProfessionalExperience() {
           </p>
         </div>
 
-        {/* Vertical Timeline */}
-        <div className="relative border-l-2 border-primary/30 ml-4 sm:ml-8 md:ml-12 space-y-12">
+        {/* Vertical Timeline with Radiant Gradient Line */}
+        <div className="relative border-l-2 border-primary/30 ml-4 sm:ml-8 md:ml-12 space-y-12 before:absolute before:inset-y-0 before:-left-[2px] before:w-[2px] before:bg-gradient-to-b before:from-primary before:via-primary/50 before:to-transparent">
           {TIMELINE_EXPERIENCE.map((item, index) => (
             <div
               key={item.role}
@@ -54,8 +54,11 @@ export default function ProfessionalExperience() {
               className="relative pl-6 sm:pl-10 scroll-reveal"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {/* Timeline Indicator Dot */}
-              <div className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-primary border-4 border-background shadow-md shadow-primary/30" />
+              {/* Timeline Indicator Dot with Ambient Pulse Ring */}
+              <div className="absolute -left-[9px] top-1.5 flex items-center justify-center">
+                <div className="h-4 w-4 rounded-full bg-primary border-4 border-background shadow-md shadow-primary/40 relative z-10" />
+                <div className="absolute h-6 w-6 rounded-full bg-primary/30 animate-pulse pointer-events-none" />
+              </div>
 
               {/* Timeline Content Card */}
               <div className="rounded-2xl bg-card border border-border p-6 sm:p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover-lift">

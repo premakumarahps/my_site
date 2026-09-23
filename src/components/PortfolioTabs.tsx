@@ -124,8 +124,11 @@ export default function PortfolioTabs() {
           </div>
         </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
+        {/* Project Cards Grid with Google-Grade Fluid Transition */}
+        <div
+          key={activeTab}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 animate-tab-fade"
+        >
           {filteredProjects.map((project) => (
             <div
               key={project.id}
