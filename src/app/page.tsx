@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import SkillsMatrix from "@/components/SkillsMatrix";
 import PortfolioTabs from "@/components/PortfolioTabs";
 import ProfessionalExperience from "@/components/ProfessionalExperience";
+import ComfortableTypewriter from "@/components/ComfortableTypewriter";
 
 export default function Home() {
   useEffect(() => {
@@ -37,12 +38,17 @@ export default function Home() {
         <div className="space-y-6 max-w-4xl mx-auto">
           <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-sm font-medium text-primary backdrop-blur-sm animate-fade-in-down shadow-sm shadow-primary/10">
             <Atom className="mr-2 h-4 w-4" />
-            <span>Materials Engineer & Physics Consultant</span>
-            <span className="inline-block w-0.5 h-3.5 ml-1.5 bg-primary animate-cursor-blink align-middle rounded-full shadow-[0_0_8px_rgba(59,130,246,0.9)]" />
+            <span>Materials Engineer &amp; Physics Consultant</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-tight animate-fade-in-up delay-100">
-            Physics. <span className="text-primary">Engineered.</span>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-tight animate-fade-in-up delay-100 min-h-[1.25em]">
+            Physics.{" "}
+            <ComfortableTypewriter
+              words={["Engineered.", "Simulated.", "Demystified.", "Architected.", "Applied."]}
+              className="text-primary"
+              cursorClassName="h-[0.8em]"
+              pauseDuration={2800}
+            />
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200">
@@ -150,7 +156,18 @@ export default function Home() {
           <div className="text-center space-y-4 mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground">Academic Services</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
-              Tailored learning experiences designed to master G.C.E. A/L Physics with an engineering mindset.
+              Tailored learning experiences designed to{" "}
+              <ComfortableTypewriter
+                words={[
+                  "master A/L Physics with first principles.",
+                  "build an authentic engineering mindset.",
+                  "bridge abstract equations with real-world tech.",
+                  "excel with structured past-paper strategy."
+                ]}
+                className="text-primary font-medium"
+                cursorClassName="h-[0.85em]"
+                pauseDuration={3200}
+              />
             </p>
           </div>
 
