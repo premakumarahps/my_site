@@ -35,9 +35,10 @@ export default function Home() {
         <div className="absolute top-28 left-1/3 -translate-x-1/2 w-[400px] md:w-[600px] h-[280px] md:h-[380px] bg-emerald-500/15 rounded-full blur-[100px] -z-10 opacity-30 pointer-events-none animate-mesh-float-reverse" />
 
         <div className="space-y-6 max-w-4xl mx-auto">
-          <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm animate-fade-in-down">
+          <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-sm font-medium text-primary backdrop-blur-sm animate-fade-in-down shadow-sm shadow-primary/10">
             <Atom className="mr-2 h-4 w-4" />
             <span>Materials Engineer & Physics Consultant</span>
+            <span className="inline-block w-0.5 h-3.5 ml-1.5 bg-primary animate-cursor-blink align-middle rounded-full shadow-[0_0_8px_rgba(59,130,246,0.9)]" />
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-tight animate-fade-in-up delay-100">
@@ -78,7 +79,7 @@ export default function Home() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                 About Me
               </h2>
-              <div className="w-20 h-1.5 bg-primary rounded-full" />
+              <div className="luxury-divider" />
               <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
                 I am a <strong className="text-foreground">Materials Science & Engineering Graduate</strong> from the University of Moratuwa (UoM) with over 5 years of experience in high-impact Physics education and systems design.
               </p>

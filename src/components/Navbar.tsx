@@ -86,7 +86,7 @@ export default function Navbar() {
     return (
         <>
             <nav
-                className={`fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
+                className={`fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border transition-all duration-400 ease-[var(--ease-luxury)] ${isVisible ? "translate-y-0" : "-translate-y-full"
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

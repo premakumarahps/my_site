@@ -40,7 +40,7 @@ export default function SkillsMatrix() {
           {SKILL_PILLARS.map((pillar) => (
             <div
               key={pillar.title}
-              className="group relative overflow-hidden rounded-2xl bg-card border border-border p-6 sm:p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover-lift"
+              className="group relative overflow-hidden rounded-2xl bg-card border border-border p-6 sm:p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover-lift spectrum-card"
             >
               {/* Subtle ambient gradient flare */}
               <div className="absolute top-0 right-0 -m-8 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-colors pointer-events-none" />
@@ -66,14 +66,17 @@ export default function SkillsMatrix() {
                   {pillar.description}
                 </p>
 
-                {/* Skill Pills */}
+                {/* Skill Pills with Antigravity Floating Motion */}
                 <div className="flex flex-wrap gap-2 pt-2">
-                  {pillar.skills.map((skill) => (
+                  {pillar.skills.map((skill, sIdx) => (
                     <span
                       key={skill.name}
-                      className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-background border border-border text-foreground hover:border-primary/60 hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                      style={{ animationDelay: `${sIdx * 350}ms` }}
+                      className={`inline-flex items-center px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-background border border-border text-foreground hover:border-primary/60 hover:bg-primary/5 hover:-translate-y-1 transition-all duration-200 cursor-default ${
+                        sIdx % 2 === 0 ? "animate-float-subtle" : "animate-float-subtle-alt"
+                      }`}
                     >
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2 shrink-0" />
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mr-2 shrink-0 shadow-[0_0_6px_rgba(59,130,246,0.8)]" />
                       {skill.name}
                     </span>
                   ))}

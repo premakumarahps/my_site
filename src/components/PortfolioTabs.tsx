@@ -132,7 +132,7 @@ export default function PortfolioTabs() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative flex flex-col justify-between rounded-2xl bg-card border border-border p-6 sm:p-7 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover-lift"
+              className="group relative flex flex-col justify-between rounded-2xl bg-card border border-border p-6 sm:p-7 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover-lift spectrum-card"
             >
               <div className="space-y-4">
                 {/* Badge Row */}
