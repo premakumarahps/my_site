@@ -2,11 +2,14 @@
 
 import { ArrowRight, User, BookOpen, Atom, GraduationCap, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 import SkillsMatrix from "@/components/SkillsMatrix";
 import PortfolioTabs from "@/components/PortfolioTabs";
 import ProfessionalExperience from "@/components/ProfessionalExperience";
 import ComfortableTypewriter from "@/components/ComfortableTypewriter";
+import ExecutiveProfileCard from "@/components/ExecutiveProfileCard";
+import InstructorSpotlight from "@/components/InstructorSpotlight";
 
 export default function Home() {
   useEffect(() => {
@@ -36,9 +39,20 @@ export default function Home() {
         <div className="absolute top-28 left-1/3 -translate-x-1/2 w-[400px] md:w-[600px] h-[280px] md:h-[380px] bg-emerald-500/15 rounded-full blur-[100px] -z-10 opacity-30 pointer-events-none animate-mesh-float-reverse" />
 
         <div className="space-y-6 max-w-4xl mx-auto">
-          <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-sm font-medium text-primary backdrop-blur-sm animate-fade-in-down shadow-sm shadow-primary/10">
-            <Atom className="mr-2 h-4 w-4" />
+          <div className="inline-flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-2 sm:px-3.5 py-1 text-sm font-medium text-primary backdrop-blur-sm animate-fade-in-down shadow-sm shadow-primary/10">
+            <div className="relative w-6 h-6 rounded-full overflow-hidden ring-1 ring-primary/40 shrink-0">
+              <Image
+                src="/images/sadun-portrait.jpg"
+                alt="Sadun Premakumara"
+                fill
+                sizes="24px"
+                priority
+                className="object-cover object-top"
+              />
+            </div>
             <span>Materials Engineer &amp; Physics Consultant</span>
+            <span className="text-primary/40 hidden sm:inline">|</span>
+            <span className="text-foreground/80 font-normal text-xs hidden sm:inline">University of Moratuwa</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-tight animate-fade-in-up delay-100 min-h-[1.25em]">
@@ -80,8 +94,9 @@ export default function Home() {
         className="w-full py-16 sm:py-20 bg-muted/30 scroll-reveal scroll-mt-20"
       >
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="grid gap-8 md:gap-12 lg:grid-cols-2 items-center">
-            <div className="space-y-6">
+          <div className="grid gap-8 md:gap-12 lg:grid-cols-12 items-center">
+            {/* Left Narrative Column */}
+            <div className="lg:col-span-7 space-y-6">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                 About Me
               </h2>
@@ -90,43 +105,33 @@ export default function Home() {
                 I am a <strong className="text-foreground">Materials Science & Engineering Graduate</strong> from the University of Moratuwa (UoM) with over 5 years of experience in high-impact Physics education and systems design.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                My engineering philosophy is simple: <span className="text-primary italic">&quot;First Principles over Formulas.&quot;</span>
+                My engineering philosophy is simple: <span className="text-primary italic font-medium">&quot;First Principles over Formulas.&quot;</span>
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Whether simulating non-linear continuum contact mechanics in Abaqus, synthesizing sustainable composite mortars, automating geotechnical data processing via Python algorithms, or deploying serverless cloud web apps—I leverage rigorous engineering logic alongside modern AI acceleration.
               </p>
 
-              <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
-                <div className="flex items-center gap-2 text-muted-foreground bg-card px-3 sm:px-4 py-2 rounded-lg border border-border hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default">
+              <div className="grid sm:grid-cols-2 gap-3 pt-2">
+                <div className="flex items-center gap-3 text-muted-foreground bg-card/90 px-4 py-3 rounded-2xl border border-border/80 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default">
                   <GraduationCap className="h-5 w-5 text-primary shrink-0" />
-                  <span className="text-sm sm:text-base">UoM Materials Engineer</span>
+                  <div className="text-xs sm:text-sm">
+                    <p className="font-semibold text-foreground">UoM Materials Engineer</p>
+                    <p className="text-muted-foreground text-[11px]">B.Sc. Eng (Hons) Degree</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 text-muted-foreground bg-card px-3 sm:px-4 py-2 rounded-lg border border-border hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default">
+                <div className="flex items-center gap-3 text-muted-foreground bg-card/90 px-4 py-3 rounded-2xl border border-border/80 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default">
                   <User className="h-5 w-5 text-primary shrink-0" />
-                  <span className="text-sm sm:text-base">5+ Years EdTech & Consulting</span>
+                  <div className="text-xs sm:text-sm">
+                    <p className="font-semibold text-foreground">EdTech & Mentorship</p>
+                    <p className="text-muted-foreground text-[11px]">5+ Years Lead Educator</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="relative z-10 bg-card rounded-2xl p-6 sm:p-8 border border-border shadow-2xl hover-lift">
-                <div className="absolute top-0 right-0 -m-4 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-pulse" />
-                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">Core Competencies</h3>
-                <ul className="space-y-3">
-                  {[
-                    "Materials Science & Metallurgy (Super Duplex, 304 SS)",
-                    "Finite Element Analysis & Simulation (Abaqus, COMSOL, SCAPS-1D)",
-                    "Data Modeling & Scientific Python (SciPy, Pandas, RMSD)",
-                    "IoT & Embedded Firmware (ESP32, Arduino C++, MQTT)",
-                    "Advanced Level Physics Pedagogy & Cloud LMS Architecture"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm sm:text-base">
-                      <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="absolute top-6 sm:top-10 left-6 sm:left-10 w-full h-full bg-primary/5 rounded-2xl -z-10" />
+
+            {/* Right Column: Google-Grade Flagship Executive Profile Card */}
+            <div className="lg:col-span-5">
+              <ExecutiveProfileCard />
             </div>
           </div>
         </div>
@@ -170,6 +175,9 @@ export default function Home() {
               />
             </p>
           </div>
+
+          {/* Academic Instructor Spotlight (Moratuwa Campus Portrait & Credentials) */}
+          <InstructorSpotlight />
 
           <div className="grid gap-6 md:grid-cols-2 lg:gap-12">
             {/* Class Card */}

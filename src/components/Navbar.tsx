@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Atom } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -94,9 +95,20 @@ export default function Navbar() {
                         <div className="flex-shrink-0">
                             <Link
                                 href="/"
-                                className="text-lg sm:text-xl font-bold text-foreground tracking-wider transition-colors hover:text-primary"
+                                className="flex items-center gap-2.5 text-lg sm:text-xl font-bold text-foreground tracking-wider transition-all hover:text-primary group"
                             >
-                                SANDUN<span className="text-primary">.ENG</span>
+                                <div className="relative w-8 h-8 rounded-full overflow-hidden border border-border/80 group-hover:border-primary/80 transition-all shadow-xs shrink-0 ring-1 ring-primary/20">
+                                    <Image
+                                        src="/images/sadun-portrait.jpg"
+                                        alt="Sadun Premakumara"
+                                        fill
+                                        sizes="32px"
+                                        className="object-cover object-top transition-transform duration-300 group-hover:scale-110"
+                                    />
+                                </div>
+                                <span>
+                                    SANDUN<span className="text-primary">.ENG</span>
+                                </span>
                             </Link>
                         </div>
                         <div className="hidden md:block">
