@@ -38,32 +38,42 @@ export default function Home() {
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] md:w-[900px] h-[350px] md:h-[480px] bg-primary/20 rounded-full blur-[110px] -z-10 opacity-40 pointer-events-none animate-mesh-float" />
         <div className="absolute top-28 left-1/3 -translate-x-1/2 w-[400px] md:w-[600px] h-[280px] md:h-[380px] bg-emerald-500/15 rounded-full blur-[100px] -z-10 opacity-30 pointer-events-none animate-mesh-float-reverse" />
 
-        <div className="space-y-6 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-2 sm:px-3.5 py-1 text-sm font-medium text-primary backdrop-blur-sm animate-fade-in-down shadow-sm shadow-primary/10">
-            <div className="relative w-7 h-7 rounded-full overflow-hidden ring-1.5 ring-primary/50 shrink-0 shadow-xs">
-              <Image
-                src="/images/sadun-studio-portrait.jpg"
-                alt="Sadun Premakumara"
-                fill
-                sizes="28px"
-                priority
-                className="object-cover object-top"
+        <div className="space-y-6 sm:space-y-8 max-w-4xl mx-auto">
+          {/* Main 2-Line Headline without periods */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-foreground leading-[1.12] animate-fade-in-up delay-100 flex flex-col items-center justify-center gap-1 sm:gap-2">
+            <span className="block">Materials Science</span>
+            <span className="block text-primary">
+              <ComfortableTypewriter
+                words={["Engineered", "Simulated", "Characterized", "Synthesized", "Optimized"]}
+                className="text-primary"
+                cursorClassName="h-[0.85em]"
+                pauseDuration={2800}
               />
-            </div>
-            <span>Materials Engineer &amp; Physics Consultant</span>
-            <span className="text-primary/40 hidden sm:inline">|</span>
-            <span className="text-foreground/80 font-normal text-xs hidden sm:inline">University of Moratuwa</span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-foreground leading-tight animate-fade-in-up delay-100 min-h-[1.25em]">
-            Materials Science.{" "}
-            <ComfortableTypewriter
-              words={["Engineered.", "Simulated.", "Characterized.", "Synthesized.", "Optimized."]}
-              className="text-primary"
-              cursorClassName="h-[0.8em]"
-              pauseDuration={2800}
-            />
+            </span>
           </h1>
+
+          {/* Persona Credential Badge (brought down directly under main heading) */}
+          <div className="flex justify-center animate-fade-in-up delay-200">
+            <div className="inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 rounded-full border border-primary/30 bg-primary/10 px-3.5 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-foreground backdrop-blur-sm shadow-sm shadow-primary/10 hover:border-primary/50 transition-all">
+              <div className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden ring-1.5 sm:ring-2 ring-primary/60 shrink-0 shadow-xs">
+                <Image
+                  src="/images/sadun-studio-portrait.jpg"
+                  alt="Sadun Premakumara"
+                  fill
+                  sizes="32px"
+                  priority
+                  className="object-cover object-top"
+                />
+              </div>
+              <div className="flex items-center gap-2 flex-wrap text-center sm:text-left justify-center">
+                <span className="font-bold text-foreground">Sadun Premakumara</span>
+                <span className="text-primary/40 hidden sm:inline">•</span>
+                <span className="text-primary font-medium">Materials Engineer &amp; Physics Consultant</span>
+                <span className="text-primary/40 hidden sm:inline">|</span>
+                <span className="text-muted-foreground hidden sm:inline">University of Moratuwa</span>
+              </div>
+            </div>
+          </div>
 
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
             Engineering advanced metallurgical systems, continuum mechanics, and sustainable composites from first principles.

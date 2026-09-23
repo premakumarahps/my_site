@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 
 interface ComfortableTypewriterProps {
   words: string[];
-  typingSpeed?: number;
-  deletingSpeed?: number;
+  baseTypingSpeed?: number;
   pauseDuration?: number;
   className?: string;
   cursorClassName?: string;
@@ -13,9 +12,8 @@ interface ComfortableTypewriterProps {
 
 export default function ComfortableTypewriter({
   words,
-  typingSpeed = 95,
-  deletingSpeed = 45,
-  pauseDuration = 2600,
+  baseTypingSpeed = 85,
+  pauseDuration = 2800,
   className = "",
   cursorClassName = "",
 }: ComfortableTypewriterProps) {
@@ -28,13 +26,33 @@ export default function ComfortableTypewriter({
 
     if (!isDeleting) {
       if (currentText.length < targetWord.length) {
-        const jitter = Math.floor(Math.random() * 20) - 10;
+        // Dynamic, human-like typing cadence:
+        // - Initial keystroke: natural hesitation as someone starts typing (190-260ms)
+        // - In-word keystrokes: variable rhythm (fast bursts for fluencies, gentle micro-pauses)
+        let delay: number;
+
+        if (currentText.length === 0) {
+          delay = 190 + Math.random() * 80;
+        } else {
+          const rand = Math.random();
+          if (rand < 0.12) {
+            // Natural mental micro-pause mid-word
+            delay = baseTypingSpeed + 90 + Math.random() * 80;
+          } else if (rand > 0.72) {
+            // Rapid keystroke burst
+            delay = Math.max(35, baseTypingSpeed - 35 + Math.random() * 20);
+          } else {
+            // Organic human variance
+            delay = baseTypingSpeed + (Math.random() * 40 - 20);
+          }
+        }
+
         const timer = setTimeout(() => {
           setCurrentText(targetWord.slice(0, currentText.length + 1));
-        }, Math.max(30, typingSpeed + jitter));
+        }, delay);
         return () => clearTimeout(timer);
       } else {
-        // Word complete: pause comfortably before deleting
+        // Full word typed: pause comfortably with soft cursor breathing so user can absorb text
         const timer = setTimeout(() => {
           setIsDeleting(true);
         }, pauseDuration);
@@ -42,20 +60,30 @@ export default function ComfortableTypewriter({
       }
     } else {
       if (currentText.length > 0) {
+        // Dynamic accelerating backspace:
+        // Starts deliberate, accelerates progressively as if holding down backspace key
+        const charactersRemaining = currentText.length;
+        const totalCharacters = targetWord.length;
+        const erasedSoFar = totalCharacters - charactersRemaining;
+
+        // Acceleration factor: starts around 65ms, smoothly drops towards ~24ms with subtle jitter
+        const acceleration = Math.min(38, erasedSoFar * 4.5);
+        const dynamicDeleteSpeed = Math.max(24, 65 - acceleration + (Math.random() * 12 - 6));
+
         const timer = setTimeout(() => {
           setCurrentText(targetWord.slice(0, currentText.length - 1));
-        }, deletingSpeed);
+        }, dynamicDeleteSpeed);
         return () => clearTimeout(timer);
       } else {
-        // Deleting complete: brief natural pause then next word
+        // Deleting finished: comfortable natural pause before typing the next word
         const timer = setTimeout(() => {
           setIsDeleting(false);
           setCurrentWordIndex((prev) => (prev + 1) % words.length);
-        }, 320);
+        }, 320 + Math.random() * 60);
         return () => clearTimeout(timer);
       }
     }
-  }, [currentText, isDeleting, currentWordIndex, words, typingSpeed, deletingSpeed, pauseDuration]);
+  }, [currentText, isDeleting, currentWordIndex, words, baseTypingSpeed, pauseDuration]);
 
   const isWordComplete = currentText === words[currentWordIndex];
 
