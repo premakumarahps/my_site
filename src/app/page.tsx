@@ -40,17 +40,17 @@ export default function Home() {
 
         <div className="space-y-6 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-2 sm:px-3.5 py-1 text-sm font-medium text-primary backdrop-blur-sm animate-fade-in-down shadow-sm shadow-primary/10">
-            <div className="relative w-6 h-6 rounded-full overflow-hidden ring-1 ring-primary/40 shrink-0">
+            <div className="relative w-7 h-7 rounded-full overflow-hidden ring-1.5 ring-primary/50 shrink-0 shadow-xs">
               <Image
-                src="/images/sadun-portrait.jpg"
+                src="/images/sadun-studio-portrait.jpg"
                 alt="Sadun Premakumara"
                 fill
-                sizes="24px"
+                sizes="28px"
                 priority
                 className="object-cover object-top"
               />
             </div>
-            <span>Materials Science &amp; Engineering Graduate</span>
+            <span>Materials Engineer &amp; Physics Consultant</span>
             <span className="text-primary/40 hidden sm:inline">|</span>
             <span className="text-foreground/80 font-normal text-xs hidden sm:inline">University of Moratuwa</span>
           </div>
