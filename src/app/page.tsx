@@ -10,6 +10,7 @@ import ProfessionalExperience from "@/components/ProfessionalExperience";
 import ComfortableTypewriter from "@/components/ComfortableTypewriter";
 import ExecutiveProfileCard from "@/components/ExecutiveProfileCard";
 import InstructorSpotlight from "@/components/InstructorSpotlight";
+import CurriculumSection from "@/components/CurriculumSection";
 
 export default function Home() {
   useEffect(() => {
@@ -80,17 +81,24 @@ export default function Home() {
             Leveraging scientific Python, Abaqus FEA, and computational algorithms to bridge physical material science with modern computational precision.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in-up delay-300">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-8 animate-fade-in-up delay-300">
             <Link
               href="#portfolio"
-              className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary hover-glow min-h-[48px]"
+              className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-7 text-sm font-medium text-primary-foreground shadow transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary hover-glow min-h-[48px]"
             >
-              Explore Materials Portfolio
+              Explore Portfolio &amp; Projects
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link
+              href="#curriculum"
+              className="inline-flex h-12 items-center justify-center rounded-md border border-primary/40 bg-primary/10 px-6 text-sm font-medium text-primary shadow-sm transition-all hover:bg-primary/20 hover:border-primary hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-[48px]"
+            >
+              <GraduationCap className="mr-2 h-4 w-4" />
+              Academic Curriculum (161+ Credits)
+            </Link>
+            <Link
               href="#about"
-              className="inline-flex h-12 items-center justify-center rounded-md border border-border bg-card px-8 text-sm font-medium text-card-foreground shadow-sm transition-all hover:bg-muted hover:text-foreground hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-[48px]"
+              className="inline-flex h-12 items-center justify-center rounded-md border border-border bg-card px-6 text-sm font-medium text-card-foreground shadow-sm transition-all hover:bg-muted hover:text-foreground hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-[48px]"
             >
               Engineering Profile
             </Link>
@@ -172,6 +180,11 @@ export default function Home() {
       {/* Technical Portfolio (Tabs & Deep-Dive Modals) - Materials Tab Active by Default */}
       <div className="w-full scroll-mt-20">
         <PortfolioTabs />
+      </div>
+
+      {/* Academic Modules & Curriculum (All 8 Semesters, 46 Modules, PDF Downloads) */}
+      <div className="w-full scroll-mt-20">
+        <CurriculumSection />
       </div>
 
       {/* Professional Journey (Timeline) */}

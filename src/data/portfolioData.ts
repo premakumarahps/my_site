@@ -429,6 +429,147 @@ export const PROJECTS_DATA: ProjectItem[] = [
         "Pinpointed precise formulation parameters to achieve high short-circuit current density ($J_{sc} \\approx 29.3\\text{ mA/cm}^2$) and optimum device efficiency.",
     },
   },
+  {
+    id: "cnt-self-healing",
+    title: "Carbon Nanotubes (CNTs) as Self-Healing Agents",
+    subtitle: "Autonomous Nanocomposite Architecture for Aerospace",
+    category: "materials",
+    shortDescription:
+      "Comprehensive research evaluating SWCNTs and MWCNTs (Young's modulus up to 1 TPa) in polymer matrices for extrinsic microcapsule and intrinsic supramolecular autonomous crack repair.",
+    tags: ["Carbon Nanotubes", "Aerospace Composites", "Self-Healing Polymers", "SEM / EDX", "Dynamic Covalent Bonds", "TGA / DSC"],
+    academicContext: "MT2021/MT2053 - Polymer Science & Communication",
+    gradeBadge: "Grade B+ | 3.0 Credits",
+    fullReport: {
+      executiveSummary:
+        "Investigated the integration of Single-Walled (SWCNTs) and Multi-Walled Carbon Nanotubes (MWCNTs) into advanced polymer composites to engineer autonomous self-healing aerospace materials that detect and heal micro-cracks without human intervention, drastically mitigating catastrophic in-flight failures.",
+      methodology: [
+        "Evaluated extrinsic self-healing architectures: CNT-reinforced microcapsule walls and polyacrylonitrile (PAN) hollow fibers containing liquid healing agents (dicyclopentadiene / epoxy), alongside biomimetic continuous vascular networks.",
+        "Investigated intrinsic self-repair mechanisms: functionalized CNTs forming reversible dynamic covalent bonds and supramolecular interactions ($\\pi$-$\\pi$ stacking, hydrogen bonding, van der Waals forces) enabling repeatable healing at identical fracture locations.",
+        "Synthesized multi-scale characterization protocols: Scanning Electron Microscopy (SEM) for crack bridging verification, EDX, IR & Raman spectroscopy for chemical bond reformation, and DSC/TGA for thermal activation kinetics.",
+        "Analyzed targeted aerospace implementations: composite wing/fuselage delamination healing, deep-space pressurized fuel tank micro-fracture sealing, and piezoresistive structural health sensing in avionics.",
+      ],
+      technicalArchitecture: [
+        "SWCNT & MWCNT Nanoscale Reinforcement Networks",
+        "Dynamic Covalent Chemistry & Reversible Supramolecular Crosslinking",
+        "SEM, EDX, Raman Spectroscopy & DSC Thermal Kinetics",
+        "Aerospace Structural Delamination Standards",
+      ],
+      outcomes:
+        "Awarded Grade 'B+'; delivered an actionable technological roadmap for implementing lightweight, self-repairing polymer nanocomposites resilient against thermal shocks, atomic oxygen (AO) erosion, and UV radiation.",
+    },
+  },
+  {
+    id: "tfet-quantum",
+    title: "Quantum Mechanics of Tunneling Field Effect Transistors",
+    subtitle: "Sub-Bandgap Device Physics Overcoming the 60 mV/dec Limit",
+    category: "materials",
+    shortDescription:
+      "Theoretical device physics research modeling Wentzel-Kramers-Brillouin (WKB) quantum tunneling probability, band-to-band tunneling (BTBT), and ambipolar suppression in sub-10nm TFETs.",
+    tags: ["Quantum Mechanics", "TFETs", "WKB Approximation", "Band-to-Band Tunneling", "Solid State Physics", "Heterojunctions"],
+    academicContext: "MT2181 - Solid State Materials",
+    gradeBadge: "Theoretical Research Project",
+    fullReport: {
+      executiveSummary:
+        "Conducted in-depth solid-state physics research explaining how Tunneling Field Effect Transistors (TFETs) overcome the fundamental thermionic emission barrier (the 60 mV/decade Boltzmann tyranny) of standard MOSFETs by leveraging quantum mechanical Band-to-Band Tunneling (BTBT).",
+      methodology: [
+        "Formulated electron transmission probability $T(E)$ through the energy barrier using the Wentzel-Kramers-Brillouin (WKB) approximation, demonstrating exponential dependence on carrier effective mass ($m^*$) and bandgap ($E_g$).",
+        "Demonstrated how TFETs filter high-energy electrons (acting as an energy bandpass filter), achieving steep sub-threshold swing and drastically cutting off-state leakage current ($I_{off}$) under scaled supply voltages.",
+        "Evaluated solid-state material systems: contrasted indirect bandgaps (momentum conservation / phonons in Silicon) with direct bandgaps (III-V compounds), and modeled Ge-source / Si-channel heterojunctions to artificially lower junction barriers and boost ON-current ($I_{on}$).",
+        "Addressed ambipolar parasitic leakage through asymmetric drain doping and gate-underlap geometry, while proving superior immunity to Drain-Induced Barrier Lowering (DIBL) in sub-10nm nodes.",
+      ],
+      technicalArchitecture: [
+        "WKB Quantum Tunneling Approximation Formulation",
+        "Heterojunction Band Alignment Modeling (Ge/Si & III-V Nanowires)",
+        "1D Carbon Nanotube (CNT) TFET Channel Architectures",
+      ],
+      outcomes:
+        "Bridged abstract quantum mechanics with practical semiconductor device engineering, establishing theoretical design rules for next-generation ultra-low-power computing architectures.",
+    },
+  },
+  {
+    id: "xrd-paper-analysis",
+    title: "XRD Analysis of Historical Paper Deacidification & Ageing",
+    subtitle: "Cellulose Crystallinity & Nanostructural Forensic Preservation",
+    category: "materials",
+    shortDescription:
+      "Forensic materials science research using 2D/1D X-Ray Diffraction to quantify cellulose Crystallinity Index (CI) and Crystallinity Ratio (CR) following artificial thermal ageing and chemical deacidification.",
+    tags: ["X-Ray Diffraction", "Cellulose Crystallinity", "Materials Characterization", "Deacidification", "Forensic Testing", "Calcite Precipitation"],
+    academicContext: "MT3054 - Characterization of Materials",
+    gradeBadge: "Individual Research Case Study",
+    fullReport: {
+      executiveSummary:
+        "Explored the nanostructural degradation of archival documents by contrasting 19th-century flax 'rag' paper against modern cotton Whatman paper. Applied advanced X-Ray Diffraction (XRD) to quantify how accelerated artificial ageing and aqueous deacidification alter cellulose crystalline fractions.",
+      methodology: [
+        "Extracted 1D linear diffraction traces from 2D XRD patterns to calculate Crystallinity Index ($CI = (I_{max} - I_{min})/I_{max}$) and Crystallinity Ratio ($CR$).",
+        "Subjected samples to accelerated environmental degradation in a controlled climatic chamber at 80°C and 65% Relative Humidity (RH) continuously for two weeks.",
+        "Evaluated aqueous deacidification agents: Calcium Hydroxide $Ca(OH)_2$ and Magnesium Bicarbonate $Mg(HCO_3)_2$ to halt acid hydrolysis of cellulose chains.",
+        "Isolated residual calcite ($CaCO_3$) diffraction reflections, linking excessive inorganic crystalline deposits with microstructural embrittlement.",
+      ],
+      technicalArchitecture: [
+        "2D/1D Powder X-Ray Diffractometry (XRD)",
+        "Cellulose Amorphous/Crystalline Peak Deconvolution",
+        "Controlled Environmental Chamber Testing (80°C / 65% RH)",
+      ],
+      outcomes:
+        "Demonstrated that forensic XRD can detect microscopic embrittlement invisible to conventional optical testing, revealing the delicate chemical balance required in paper conservation.",
+    },
+  },
+  {
+    id: "dental-implant-biomaterials",
+    title: "Osseointegration & Surface Engineering of Dental Implants",
+    subtitle: "Topographical SLA Etching & Hydroxyapatite Bioactive Coatings",
+    category: "materials",
+    shortDescription:
+      "Biomaterials research on structural osseointegration of Titanium and Zirconia implants: Sandblasted Large-grit Acid-etched (SLA) surface roughness, plasma-sprayed Hydroxyapatite (HA), and BMP-2 proteins.",
+    tags: ["Biomaterials", "Dental Implants", "Osseointegration", "Titanium SLA", "Hydroxyapatite", "Bioactive Coatings"],
+    academicContext: "MT4120/MT4420 - Biomaterials & Implants",
+    gradeBadge: "Advanced Modules Portfolio",
+    fullReport: {
+      executiveSummary:
+        "Investigated the mechanical and biological interface between living human bone tissue and load-bearing artificial implants (Titanium, Zirconia) to eliminate fibrous encapsulation and accelerate long-term clinical osseointegration.",
+      methodology: [
+        "Evaluated macro-to-nano surface topography modifications: Sandblasting and Large-grit Acid etching (SLA) to maximize contact area, foster primary mechanical interlocking, and facilitate initial blood clot retention.",
+        "Analyzed bioactive chemical coatings: plasma-sprayed Hydroxyapatite ($Ca_{10}(PO_4)_6(OH)_2$) matching natural bone mineral chemistry to promote direct chemical bonding.",
+        "Researched biochemical functionalization with Bone Morphogenetic Proteins (BMP-2) to stimulate localized osteoblast differentiation and accelerate cellular mineralization.",
+        "Assessed implant mechanics against masticatory fatigue, oral corrosion, and metal hypersensitivity.",
+      ],
+      technicalArchitecture: [
+        "Titanium Grade 4 / Ti-6Al-4V ELI & Zirconia ($ZrO_2$) Microstructures",
+        "Plasma-Sprayed Hydroxyapatite (HA) Coating Protocols",
+        "SLA Topographical Surface Modification & Osseointegration Dynamics",
+      ],
+      outcomes:
+        "Demonstrated how precision surface engineering at the nano- and microscale converts inert load-bearing metals into biologically active osteoconductive implants.",
+    },
+  },
+  {
+    id: "graphene-supercapacitor",
+    title: "Graphene Supercapacitor Fabrication & Electrochemical Analysis",
+    subtitle: "EDLC Electrodes with Ultra-High Specific Capacitance",
+    category: "materials",
+    shortDescription:
+      "Synthesized nanostructured graphene EDLC electrodes leveraging $2630\\text{ m}^2/\\text{g}$ theoretical surface area. Performed Cyclic Voltammetry (CV) and Galvanostatic Charge-Discharge (GCD) testing.",
+    tags: ["Supercapacitors", "Graphene Electrodes", "Cyclic Voltammetry", "EDLC", "Energy Storage", "GCD Testing"],
+    academicContext: "MT4420 - Energy Materials",
+    gradeBadge: "Laboratory Research Project",
+    fullReport: {
+      executiveSummary:
+        "Synthesized and electrochemically characterized graphene-based Electrical Double-Layer Capacitor (EDLC) electrodes designed to bridge the performance gap between high-energy chemical batteries and high-power dielectric capacitors.",
+      methodology: [
+        "Formulated conductive electrode slurries combining high-surface-area graphene powder ($2630\\text{ m}^2\\text{/g}$ theoretical surface area) with PTFE binders, uniformly knife-coated onto metallic current collectors.",
+        "Executed Cyclic Voltammetry (CV) across multiple voltage scan rates; verified quasi-rectangular voltammogram profiles confirming ideal electrostatic double-layer charge storage without faradaic redox degradation.",
+        "Conducted Galvanostatic Charge-Discharge (GCD) cycling across varied current densities, calculating specific capacitance ($C_s = (I \\cdot \\Delta t)/(m \\cdot \\Delta V)$) from linear discharge slopes.",
+        "Evaluated equivalent series resistance (ESR) and long-term cyclic retention.",
+      ],
+      technicalArchitecture: [
+        "Graphene Nanoplatelet Slurry & Conductive Substrate Coating",
+        "Electrochemical Workstation for Cyclic Voltammetry (CV)",
+        "Galvanostatic Charge-Discharge (GCD) Dynamic Potentiometry",
+      ],
+      outcomes:
+        "Successfully fabricated functional EDLC supercapacitor test cells exhibiting high rate capability, fast ion diffusion kinetics, and verified specific capacitance for fast-charge energy storage systems.",
+    },
+  },
 
   // TAB 4: Mechanical Design & Economics
   {
@@ -525,6 +666,36 @@ export const PROJECTS_DATA: ProjectItem[] = [
       ],
       outcomes:
         "Proved that the product is both financially profitable for private investors and socio-economically beneficial for rapid sustainable national housing.",
+    },
+  },
+  {
+    id: "heat-sink-thermodynamics",
+    title: "Thermodynamic Analysis of a Heat Sink",
+    subtitle: "Conduction, Convection & Fin Geometry Optimization",
+    category: "mechanical",
+    shortDescription:
+      "Theoretical and analytical heat dissipation study modeling 1D/3D conduction, boundary layer convection, dimensionless fluid numbers (Nu, Re, Gr, Pr, Ra), and advanced graphene/nanostructured fins.",
+    tags: ["Thermodynamics", "Heat Sink Optimization", "Fourier's Law", "Dimensionless Numbers", "Graphene Cooling", "Fin Profiles"],
+    academicContext: "MT1070 - Thermodynamics and Phase Equilibria",
+    gradeBadge: "Grade B | 3.0 Credits",
+    fullReport: {
+      executiveSummary:
+        "Conducted an in-depth thermodynamic analysis of electronic heat dissipation mechanisms via conduction, convection, and radiation. Evaluated structural fin configurations, material thermal diffusivity (Copper vs. Aluminum), and cutting-edge graphene/nanostructured thermal spreaders to maximize heat transfer efficiency.",
+      methodology: [
+        "Analyzed Fourier's law in differential form for 1D and 3D steady-state conditions; evaluated isotropic vs. anisotropic materials and transient thermal diffusivity ($\\alpha$) in Copper and Aluminum.",
+        "Modeled boundary layer thicknesses (laminar vs. turbulent) over flat plates, and quantified radiative heat transfer using the Stefan-Boltzmann law and surface emissivity values.",
+        "Applied thermodynamic dimensionless correlations (Nusselt, Reynolds, Grashof, Prandtl, and Rayleigh numbers) to predict buoyancy-driven convection and momentum diffusivity without CFD dependencies.",
+        "Systematically optimized fin profiles (Pin, Straight, Louvered, Offset, Wavy, and Microchannel) to balance convective heat transfer surface area against excessive airflow pressure drops.",
+        "Explored cutting-edge cooling technologies: graphene-based heat spreaders, nanowire arrays, thermoelectric modules (Peltier/Seebeck), and microfluidic/photonic cooling systems.",
+      ],
+      technicalArchitecture: [
+        "Differential Fourier 1D/3D Conduction Solvers",
+        "Dimensionless Boundary Layer Correlations (Nu, Re, Gr, Pr, Ra)",
+        "Thermal Interface Materials (TIM) Contact Resistance Analysis",
+        "Graphene & Nanostructured Heat Spreader Formulations",
+      ],
+      outcomes:
+        "Achieved Grade 'B' (3.0 Credits); established theoretical framework and geometric design rules for optimizing thermal management in high-density power electronics.",
     },
   },
 ];
