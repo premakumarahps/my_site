@@ -190,10 +190,11 @@ body {
   will-change: opacity, transform, filter;
 }
 
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0px);
+.scroll-reveal.visible,
+.scroll-reveal:target {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0px) !important;
 }
 
 /* Granular Stagger Delays */

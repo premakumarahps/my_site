@@ -81,12 +81,12 @@ export default function Home() {
               Academic Curriculum (161+ Credits)
             </Link>
             <a
-              href="/docs/Sandun_Premakumara_Curriculum_Syllabus.pdf"
-              download="Sandun_Premakumara_CV.pdf"
+              href="/docs/Curriculum_Modules_and_Syllabus.pdf"
+              download="Sandun_Premakumara_Curriculum_Syllabus.pdf"
               className="inline-flex h-12 items-center justify-center rounded-md border border-border bg-card px-6 text-sm font-medium text-card-foreground shadow-sm transition-all hover:bg-muted hover:text-foreground hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-[48px]"
             >
               <ArrowRight className="mr-2 h-4 w-4 rotate-90" />
-              Download CV (PDF)
+              Download Curriculum &amp; Syllabus (PDF)
             </a>
           </div>
         </div>

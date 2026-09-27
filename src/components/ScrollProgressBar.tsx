@@ -6,11 +6,19 @@ export default function ScrollProgressBar() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const currentProgress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
-      setProgress(currentProgress);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const currentProgress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+          setProgress(currentProgress);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

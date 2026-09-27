@@ -10,7 +10,7 @@ export default function LayoutChrome({ children }: { children: ReactNode }) {
     <>
       <ScrollProgressBar />
       <Navbar />
-      <main className="pt-16">{children}</main>
+      <div className="pt-16 min-h-screen">{children}</div>
       <BackToTop />
     </>
   );

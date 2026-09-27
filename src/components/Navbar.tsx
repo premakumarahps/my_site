@@ -17,26 +17,26 @@ export default function Navbar() {
     useScrollLock(mobileMenuOpen);
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const currentScrollY = window.scrollY;
 
-            // Always show navbar at the top
-            if (currentScrollY < 10) {
-                setIsVisible(true);
-            } else {
-                // Show navbar when scrolling up, hide when scrolling down
-                if (currentScrollY < lastScrollYRef.current) {
-                    setIsVisible(true);
-                } else {
-                    setIsVisible(false);
-                }
-            }
+                    // Always show navbar at the top
+                    const targetVisible = currentScrollY < 10 || currentScrollY < lastScrollYRef.current;
+                    setIsVisible((prev) => (prev !== targetVisible ? targetVisible : prev));
 
-            lastScrollYRef.current = currentScrollY;
+                    lastScrollYRef.current = currentScrollY;
 
-            // Reactivate Home when scrolled back near top
-            if (currentScrollY < 80) {
-                setActiveSection("");
+                    // Reactivate Home when scrolled back near top
+                    if (currentScrollY < 80) {
+                        setActiveSection((prev) => (prev !== "" ? "" : prev));
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
 

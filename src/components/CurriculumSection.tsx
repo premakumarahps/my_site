@@ -125,7 +125,7 @@ export default function CurriculumSection() {
   };
 
   return (
-    <section id="curriculum" className="w-full py-16 sm:py-20 md:py-28 bg-muted/10 scroll-reveal scroll-mt-20">
+    <section id="curriculum" className="w-full py-16 sm:py-20 md:py-28 bg-muted/10 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center space-y-4 mb-10 md:mb-14">
