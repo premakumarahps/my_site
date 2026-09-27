@@ -18,8 +18,8 @@ export default function InstructorSpotlight() {
         <div className="lg:col-span-4 relative mx-auto w-full max-w-sm">
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border/80 shadow-2xl bg-muted group">
             <Image
-              src="/images/sadun-academic.jpg"
-              alt="Sadun Premakumara - Lead Physics Educator on University of Moratuwa campus"
+              src="/images/sandun-academic.jpg"
+              alt="Sandun Premakumara - Lead Physics Educator on University of Moratuwa campus"
               fill
               quality={80}
               sizes="(max-width: 768px) 100vw, 360px"
@@ -34,7 +34,7 @@ export default function InstructorSpotlight() {
                 <p className="text-xs font-semibold text-primary flex items-center gap-1.5">
                   <Sparkles className="h-3 w-3" /> Lead Instructor & Founder
                 </p>
-                <p className="text-sm font-bold text-foreground">Eng. Sadun Premakumara</p>
+                <p className="text-sm font-bold text-foreground">Eng. Sandun Premakumara</p>
                 <p className="text-[11px] text-muted-foreground">University of Moratuwa · B.Sc. Eng</p>
               </div>
             </div>
@@ -89,6 +89,15 @@ export default function InstructorSpotlight() {
               Explore Physics Academy Platform
               <ArrowUpRight className="ml-1.5 h-4 w-4 opacity-80" />
             </Link>
+            
+            <a
+              href="https://wa.me/94770000000" // Replace with actual number if provided
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20 px-6 text-sm font-medium text-emerald-600 dark:text-emerald-400 shadow-sm transition-all hover:bg-emerald-500/20 hover:border-emerald-500/30 hover:scale-[1.02] active:scale-[0.98] min-h-[44px]"
+            >
+              Enquire on WhatsApp
+            </a>
 
             <span className="text-xs text-muted-foreground flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-emerald-500" />

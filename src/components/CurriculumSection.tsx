@@ -177,7 +177,7 @@ export default function CurriculumSection() {
                 </a>
                 <a
                   href="/docs/Project_Portfolio_and_Technical_Summaries.pdf"
-                  download="Sadun_Premakumara_Project_Portfolio.pdf"
+                  download="Sandun_Premakumara_Project_Portfolio.pdf"
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-muted text-foreground border border-border text-xs sm:text-sm font-medium hover:bg-muted/80 transition-all hover:scale-[1.02]"
                 >
                   <Download className="h-3.5 w-3.5" />
@@ -221,7 +221,7 @@ export default function CurriculumSection() {
                 </a>
                 <a
                   href="/docs/Curriculum_Modules_and_Syllabus.pdf"
-                  download="Sadun_Premakumara_Curriculum_Syllabus.pdf"
+                  download="Sandun_Premakumara_Curriculum_Syllabus.pdf"
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-muted text-foreground border border-border text-xs sm:text-sm font-medium hover:bg-muted/80 transition-all hover:scale-[1.02]"
                 >
                   <Download className="h-3.5 w-3.5" />

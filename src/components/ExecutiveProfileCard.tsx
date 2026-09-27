@@ -24,8 +24,8 @@ const PERSPECTIVES: Perspective[] = [
     label: "Materials & Metallurgy",
     shortLabel: "Materials Eng",
     icon: GraduationCap,
-    imageSrc: "/images/sadun-portrait.jpg",
-    imageAlt: "Sadun Premakumara - Materials Science & Engineering Graduate in sharp suit",
+    imageSrc: "/images/sandun-portrait.jpg",
+    imageAlt: "Sandun Premakumara - Materials Science & Engineering Graduate in sharp suit",
     role: "Materials & Metallurgical Engineer",
     institution: "University of Moratuwa · B.Sc. Eng (Hons)",
     quote: "Microstructure Dictates Properties, First Principles Guide Design",
@@ -37,8 +37,8 @@ const PERSPECTIVES: Perspective[] = [
     label: "Continuum FEA",
     shortLabel: "FEA & CAD",
     icon: Atom,
-    imageSrc: "/images/sadun-academic.jpg",
-    imageAlt: "Sadun Premakumara on University of Moratuwa campus",
+    imageSrc: "/images/sandun-academic.jpg",
+    imageAlt: "Sandun Premakumara on University of Moratuwa campus",
     role: "Finite Element & Continuum Modeler",
     institution: "Abaqus CAE · Solid Edge · COMSOL Multiphysics",
     quote: "Continuum Mechanics with Hertzian Precision",
@@ -50,8 +50,8 @@ const PERSPECTIVES: Perspective[] = [
     label: "Computational Code",
     shortLabel: "Scientific Code",
     icon: Code2,
-    imageSrc: "/images/sadun-research.png",
-    imageAlt: "Sadun Premakumara - Scientific Computing and Analytical Engineering",
+    imageSrc: "/images/sandun-research.png",
+    imageAlt: "Sandun Premakumara - Scientific Computing and Analytical Engineering",
     role: "Computational Engineer & Physics Mentor",
     institution: "SciPy Algorithms · Automated Pipelines · Physics Academy",
     quote: "Code Accelerates Engineering Workflows",
@@ -73,13 +73,21 @@ export default function ExecutiveProfileCard() {
       />
 
       {/* Perspective Switcher Pills (Top Segmented Control) */}
-      <div className="flex items-center justify-between gap-1.5 p-1.5 mb-4 rounded-2xl bg-muted/80 backdrop-blur-md border border-border/80 shadow-xs">
+      <div 
+        role="tablist"
+        aria-label="Profile Perspectives"
+        className="flex items-center justify-between gap-1.5 p-1.5 mb-4 rounded-2xl bg-muted/80 backdrop-blur-md border border-border/80 shadow-xs"
+      >
         {PERSPECTIVES.map((p) => {
           const Icon = p.icon;
           const isActive = activeTab === p.id;
           return (
             <button
               key={p.id}
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`panel-${p.id}`}
+              id={`tab-${p.id}`}
               onClick={() => setActiveTab(p.id)}
               className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
                 isActive
@@ -102,6 +110,9 @@ export default function ExecutiveProfileCard() {
           {PERSPECTIVES.map((p) => (
             <div
               key={p.id}
+              role="tabpanel"
+              id={`panel-${p.id}`}
+              aria-labelledby={`tab-${p.id}`}
               className={`absolute inset-0 transition-opacity duration-500 ease-[var(--ease-luxury)] ${
                 activeTab === p.id ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
               }`}

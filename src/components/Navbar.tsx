@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Menu, X, Atom } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { useScrollLock } from "@/hooks/useScrollLock";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -97,8 +98,8 @@ export default function Navbar() {
                             >
                                 <div className="relative w-8 h-8 rounded-full overflow-hidden border border-border/80 group-hover:border-primary/80 transition-all shadow-xs shrink-0 ring-1 ring-primary/20">
                                     <Image
-                                        src="/images/sadun-portrait.jpg"
-                                        alt="Sadun Premakumara"
+                                        src="/images/sandun-portrait.jpg"
+                                        alt="Sandun Premakumara"
                                         fill
                                         sizes="32px"
                                         className="object-cover object-top transition-transform duration-300 group-hover:scale-110"
@@ -134,7 +135,9 @@ export default function Navbar() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="-mr-2 flex md:hidden">
+                        <div className="flex items-center gap-2 md:gap-4">
+                            <ThemeToggle />
+                            <div className="-mr-2 flex md:hidden">
                             <button
                                 type="button"
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -159,6 +162,7 @@ export default function Navbar() {
                                     />
                                 </div>
                             </button>
+                            </div>
                         </div>
                     </div>
                 </div>

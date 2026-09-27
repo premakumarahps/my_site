@@ -5,14 +5,22 @@ import SkillsMatrix from "@/components/SkillsMatrix";
 import PortfolioTabs from "@/components/PortfolioTabs";
 import ProfessionalExperience from "@/components/ProfessionalExperience";
 import ComfortableTypewriter from "@/components/ComfortableTypewriter";
+import StatsCounter from "@/components/StatsCounter";
 import ExecutiveProfileCard from "@/components/ExecutiveProfileCard";
+import ContactForm from "@/components/ContactForm";
+import Testimonials from "@/components/Testimonials";
 import InstructorSpotlight from "@/components/InstructorSpotlight";
-import CurriculumSection from "@/components/CurriculumSection";
+import dynamic from "next/dynamic";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+
+const CurriculumSection = dynamic(() => import("@/components/CurriculumSection"), {
+  loading: () => <div className="h-[500px] w-full animate-pulse bg-muted/50 rounded-2xl flex items-center justify-center text-muted-foreground">Loading Academic Curriculum...</div>,
+  ssr: true, // We want SEO for curriculum
+});
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <main id="main-content" className="flex flex-col items-center justify-center min-h-screen">
       <ScrollRevealInit />
       {/* Hero Section */}
       <section className="relative w-full py-16 sm:py-20 md:py-32 overflow-hidden flex flex-col items-center text-center px-4">
@@ -39,8 +47,8 @@ export default function Home() {
             <div className="inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 rounded-full border border-primary/30 bg-primary/10 px-3.5 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-foreground backdrop-blur-sm shadow-sm shadow-primary/10 hover:border-primary/50 transition-all">
               <div className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden ring-1.5 sm:ring-2 ring-primary/60 shrink-0 shadow-xs">
                 <Image
-                  src="/images/sadun-studio-portrait.jpg"
-                  alt="Sadun Premakumara"
+                  src="/images/sandun-studio-portrait.jpg"
+                  alt="Sandun Premakumara"
                   fill
                   sizes="32px"
                   priority
@@ -48,7 +56,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex items-center gap-2 flex-wrap text-center sm:text-left justify-center">
-                <span className="font-bold text-foreground">Sadun Premakumara</span>
+                <span className="font-bold text-foreground">Sandun Premakumara</span>
                 <span className="text-primary/40 hidden sm:inline">•</span>
                 <span className="text-primary font-medium">Materials Engineer &amp; Physics Consultant</span>
                 <span className="text-primary/40 hidden sm:inline">|</span>
@@ -77,15 +85,19 @@ export default function Home() {
               <GraduationCap className="mr-2 h-4 w-4" />
               Academic Curriculum (161+ Credits)
             </Link>
-            <Link
-              href="#about"
+            <a
+              href="/docs/Sandun_Premakumara_Curriculum_Syllabus.pdf"
+              download="Sandun_Premakumara_CV.pdf"
               className="inline-flex h-12 items-center justify-center rounded-md border border-border bg-card px-6 text-sm font-medium text-card-foreground shadow-sm transition-all hover:bg-muted hover:text-foreground hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-[48px]"
             >
-              Engineering Profile
-            </Link>
+              <ArrowRight className="mr-2 h-4 w-4 rotate-90" />
+              Download CV (PDF)
+            </a>
           </div>
         </div>
       </section>
+
+      <StatsCounter />
 
       {/* About Section */}
       <section
@@ -245,17 +257,36 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <Testimonials />
         </div>
       </section>
 
-      {/* Footer / Contact */}
-      <footer
+      {/* Contact Section */}
+      <section
         id="contact"
-        className="w-full py-12 sm:py-16 border-t border-border bg-muted/20 mt-auto scroll-reveal scroll-mt-20"
+        className="w-full py-16 sm:py-24 bg-background scroll-reveal scroll-mt-20 border-t border-border/40"
+      >
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Get In Touch
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Whether you have a question about materials engineering, want to discuss a project, or just want to say hi, my inbox is always open.
+            </p>
+          </div>
+          <ContactForm />
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer
+        className="w-full py-12 sm:py-16 border-t border-border bg-muted/20 mt-auto"
       >
         <div className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="space-y-2 text-center md:text-left">
-            <h4 className="text-lg font-bold text-foreground">Sadun Premakumara</h4>
+            <h4 className="text-lg font-bold text-foreground">Sandun Premakumara</h4>
             <p className="text-sm text-muted-foreground">
               B.Sc. Eng (Hons) Materials Science & Engineering | University of Moratuwa
             </p>
@@ -265,9 +296,9 @@ export default function Home() {
           </div>
 
           <div className="flex gap-4">
-            {/* Note: LinkedIn handle updated to match displayed name (sandun-premakumara) */}
+            {/* Note: LinkedIn handle updated to match displayed name */}
             <Link
-              href="https://www.linkedin.com/in/sandun-premakumara"
+              href="https://linkedin.com/in/eng-sandunpremakumara"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-all p-2 hover:bg-primary/10 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center border border-border/50"
@@ -278,7 +309,7 @@ export default function Home() {
             </Link>
             {/* TODO: Verify and update with preferred active contact email address */}
             <Link
-              href="mailto:contact@sandunpremakumara.com"
+              href="mailto:premakumarahpsandun@gmail.com"
               className="text-muted-foreground hover:text-primary transition-all p-2 hover:bg-primary/10 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center border border-border/50"
               aria-label="Email Contact"
             >
@@ -288,6 +319,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
