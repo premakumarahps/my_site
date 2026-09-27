@@ -191,7 +191,7 @@ export default function PortfolioTabs() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="pt-6 mt-4 border-t border-border/60 flex items-center justify-between flex-wrap gap-2">
+                <div className="pt-5 mt-4 border-t border-border/60 flex items-center justify-between gap-2">
                   <button
                     type="button"
                     onClick={() => setSelectedProject(project)}
@@ -201,15 +201,28 @@ export default function PortfolioTabs() {
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
                   </button>
 
-                  {project.liveUrl && (
+                  {/* Visit Relevant Project Website / Hub Button on Right */}
+                  {project.liveUrl ? (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/15 hover:bg-primary/25 text-primary border border-primary/30 text-xs font-semibold transition-all hover:scale-[1.02] shadow-xs"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 hover:border-primary/50 text-xs font-semibold transition-all hover:scale-[1.02] shadow-xs shrink-0"
+                      title={`Visit ${project.title} Web Application`}
                     >
                       <Globe className="h-3.5 w-3.5" />
-                      <span>Launch App</span>
+                      <span>{project.id === "lms-saas" ? "Live Website" : "Visit Project"}</span>
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  ) : (
+                    <a
+                      href="https://github.com/premakumarahps"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground border border-border text-xs font-semibold transition-all shrink-0"
+                    >
+                      <Globe className="h-3.5 w-3.5" />
+                      <span>Project Hub</span>
                       <ExternalLink className="h-3 w-3" />
                     </a>
                   )}
@@ -220,10 +233,10 @@ export default function PortfolioTabs() {
         </div>
       </div>
 
-      {/* Technical Deep-Dive Modal */}
+      {/* Technical Deep-Dive Modal - Perfectly Centered & Smoothly Animated */}
       {selectedProject && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm animate-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/75 backdrop-blur-md animate-modal-backdrop overflow-y-auto"
           onClick={() => setSelectedProject(null)}
           role="dialog"
           aria-modal="true"
@@ -232,11 +245,11 @@ export default function PortfolioTabs() {
           <div
             ref={modalRef}
             tabIndex={-1}
-            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-card border border-border shadow-2xl p-6 sm:p-8 space-y-6 text-foreground animate-scale-in focus:outline-none"
+            className="relative w-full max-w-3xl my-auto rounded-2xl bg-card border border-border/80 shadow-2xl overflow-hidden text-foreground animate-modal-popup flex flex-col max-h-[90vh] focus:outline-none"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="flex items-start justify-between gap-4 pb-4 border-b border-border">
+            {/* Sticky Modal Header */}
+            <div className="px-6 py-5 sm:px-8 sm:py-6 border-b border-border bg-card/95 backdrop-blur-md flex items-start justify-between gap-4 shrink-0">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
@@ -248,105 +261,108 @@ export default function PortfolioTabs() {
                     </span>
                   )}
                 </div>
-                <h3 id="portfolio-modal-title" className="text-2xl sm:text-3xl font-extrabold text-foreground">
+                <h3 id="portfolio-modal-title" className="text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground">
                   {selectedProject.title}
                 </h3>
-                <p className="text-sm text-muted-foreground font-medium">
+                <p className="text-xs sm:text-sm text-muted-foreground font-medium">
                   {selectedProject.subtitle}
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setSelectedProject(null)}
-                className="p-2 rounded-lg bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
+                className="p-2 rounded-xl bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors shrink-0"
                 aria-label="Close modal"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
 
-            {/* Modal Hero Image */}
-            {selectedProject.image && (
-              <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border shadow-md">
-                <Image
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 750px"
-                  className="object-cover"
-                />
-              </div>
-            )}
+            {/* Scrollable Modal Content */}
+            <div className="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1">
+              {/* Modal Hero Image */}
+              {selectedProject.image && (
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border shadow-md">
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 750px"
+                    className="object-cover"
+                  />
+                </div>
+              )}
 
-            {/* Executive Summary */}
-            <div className="space-y-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
-                Executive Summary
-              </h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {selectedProject.fullReport.executiveSummary}
-              </p>
-            </div>
-
-            {/* Engineering Methodology */}
-            <div className="space-y-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
-                Engineering Methodology & Calculations
-              </h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                {selectedProject.fullReport.methodology.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Technical Architecture (if available) */}
-            {selectedProject.fullReport.technicalArchitecture && (
+              {/* Executive Summary */}
               <div className="space-y-2">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
-                  Technical Architecture & Standards
+                  Executive Summary
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {selectedProject.fullReport.technicalArchitecture.map((tech, idx) => (
-                    <div
-                      key={idx}
-                      className="px-3 py-2 rounded-lg bg-background border border-border text-xs text-foreground font-medium flex items-center gap-2"
-                    >
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                      {tech}
-                    </div>
-                  ))}
-                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {selectedProject.fullReport.executiveSummary}
+                </p>
               </div>
-            )}
 
-            {/* Academic / Industrial Outcomes */}
-            <div className="space-y-2 rounded-xl bg-primary/5 border border-primary/20 p-4">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
-                Engineering Outcomes & Impact
-              </h4>
-              <p className="text-sm text-foreground/90 leading-relaxed">
-                {selectedProject.fullReport.outcomes}
-              </p>
+              {/* Engineering Methodology */}
+              <div className="space-y-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+                  Engineering Methodology & Calculations
+                </h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {selectedProject.fullReport.methodology.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Technical Architecture (if available) */}
+              {selectedProject.fullReport.technicalArchitecture && (
+                <div className="space-y-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+                    Technical Architecture & Standards
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {selectedProject.fullReport.technicalArchitecture.map((tech, idx) => (
+                      <div
+                        key={idx}
+                        className="px-3 py-2 rounded-lg bg-background border border-border text-xs text-foreground font-medium flex items-center gap-2"
+                      >
+                        <div className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Academic / Industrial Outcomes */}
+              <div className="space-y-2 rounded-xl bg-primary/5 border border-primary/20 p-4">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+                  Engineering Outcomes & Impact
+                </h4>
+                <p className="text-sm text-foreground/90 leading-relaxed">
+                  {selectedProject.fullReport.outcomes}
+                </p>
+              </div>
+
+              {/* Tech Stack Pills in Modal */}
+              <div className="pt-2 flex flex-wrap gap-2">
+                {selectedProject.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 rounded-md text-xs font-medium bg-background border border-border text-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Tech Stack Pills in Modal */}
-            <div className="pt-2 flex flex-wrap gap-2">
-              {selectedProject.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 rounded-md text-xs font-medium bg-background border border-border text-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* Modal Actions */}
-            <div className="pt-4 flex items-center justify-between border-t border-border flex-wrap gap-3">
+            {/* Sticky Modal Actions Footer */}
+            <div className="px-6 py-4 sm:px-8 border-t border-border bg-card/95 backdrop-blur-md flex items-center justify-between flex-wrap gap-3 shrink-0">
               {selectedProject.liveUrl ? (
                 <a
                   href={selectedProject.liveUrl}
@@ -355,7 +371,7 @@ export default function PortfolioTabs() {
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs sm:text-sm font-semibold shadow hover:bg-primary/90 transition-all hover:scale-[1.02]"
                 >
                   <Globe className="h-4 w-4" />
-                  <span>Launch Live Application</span>
+                  <span>{selectedProject.id === "lms-saas" ? "Launch Live Platform" : "Visit Project Website"}</span>
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               ) : selectedProject.projectFolder ? (
@@ -371,7 +387,7 @@ export default function PortfolioTabs() {
               <button
                 type="button"
                 onClick={() => setSelectedProject(null)}
-                className="px-5 py-2.5 rounded-lg bg-muted text-foreground text-xs sm:text-sm font-semibold hover:bg-muted/80 transition-colors"
+                className="px-5 py-2.5 rounded-xl bg-muted text-foreground text-xs sm:text-sm font-semibold hover:bg-muted/80 transition-colors"
               >
                 Close Brief
               </button>

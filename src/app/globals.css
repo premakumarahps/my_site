@@ -27,10 +27,23 @@
   --animate-mesh-float: meshFloat 16s ease-in-out infinite;
   --animate-mesh-float-reverse: meshFloatReverse 18s ease-in-out infinite;
   --animate-tab-fade: tabFade 0.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  --animate-pulse-soft: pulseSoft 4s ease-in-out infinite;
-  --animate-cursor-blink: cursorBlink 1.1s ease-in-out infinite;
-  --animate-float-subtle: floatSubtle 6s ease-in-out infinite;
-  --animate-float-subtle-alt: floatSubtleAlt 7.5s ease-in-out infinite;
+  --animate-modal-backdrop: modalBackdrop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-modal-popup: modalPopup 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes modalBackdrop {
+    0% { opacity: 0; backdrop-filter: blur(0px); }
+    100% { opacity: 1; backdrop-filter: blur(12px); }
+  }
+  @keyframes modalPopup {
+    0% {
+      opacity: 0;
+      transform: scale(0.92) translateY(16px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
 
   @keyframes fadeIn {
     0% { opacity: 0; }

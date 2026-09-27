@@ -108,9 +108,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Next.js", "Express", "Supabase", "PostgreSQL", "Vercel Serverless", "JWT Auth"],
     academicContext: "Extracurricular / Production Platform",
     gradeBadge: "Live Production App",
+    projectFolder: "2_AL_Physics_Academy",
     image: "/images/projects/lms_platform.jpg",
     liveUrl: "https://physics-academy.vercel.app/",
-    projectFolder: "2_AL_Physics_Academy",
     fullReport: {
       executiveSummary:
         "Architected and deployed a dedicated, high-availability serverless web platform for A/L Physics tuition. The platform bridges classroom learning with self-paced digital education, providing role-based security, automated progress tracking, and seamless document delivery.",
@@ -139,8 +139,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["HTML5", "CSS3", "JavaScript", "Google Apps Script", "Google Sheets API", "Cloud Database"],
     academicContext: "Independent Systems Architecture",
     gradeBadge: "Daily Active Tool",
-    image: "/images/projects/family_finance.svg",
     projectFolder: "18_Maker_Labs_and_Ventures/projects/family_money_manager",
+    image: "/images/projects/family_finance.jpg",
+    liveUrl: "https://github.com/premakumarahps/18_Maker_Labs_and_Ventures",
     fullReport: {
       executiveSummary:
         "Engineered an elegant, zero-cost personal finance web application optimized for mobile browsers. The application allows dual-user concurrent expense and income tracking with automated category breakdowns and monthly analytics.",
@@ -168,8 +169,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Python", "SciPy", "NumPy", "RMSD Algorithm", "Geotechnical Engineering"],
     academicContext: "Industrial Internship Innovation (CEC / RDA)",
     gradeBadge: "Field Implemented",
-    image: "/images/projects/dcp_analyzer.svg",
     projectFolder: "16_CEC_Internship/dcp_interactive_tool",
+    image: "/images/projects/dcp_analyzer.jpg",
+    liveUrl: "https://github.com/premakumarahps/16_CEC_Internship",
     fullReport: {
       executiveSummary:
         "Developed during a 24-week industrial placement with Consulting Engineering & Contractors (Pvt) Ltd. on an RDA road project. Replaced tedious, error-prone manual graph plotting with an automated algorithm that determines exact subgrade and base layer transition depths from dynamic cone penetrometer (DCP) blow counts.",
@@ -197,6 +199,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Python", "JavaScript", "Kinetics of Materials", "Arrhenius Modeling"],
     academicContext: "Computational Materials Research",
     gradeBadge: "Research Simulation",
+    image: "/images/projects/perovskite_predictor.jpg",
+    liveUrl: "https://github.com/premakumarahps/17_Solar_Cell_AI_Simulation_Lab",
     fullReport: {
       executiveSummary:
         "A computational tool bridging kinetic chemical equations and photovoltaic longevity predictions. Allows researchers to evaluate degradation rates and stabilizer efficacies under variable solar irradiance and thermal conditions.",
@@ -220,8 +224,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["ESP32", "C++", "MQTT", "Node-RED", "Servo PWM", "Wokwi Simulator", "DHT22"],
     academicContext: "EN2853 - Embedded Systems and Applications",
     gradeBadge: "Grade A- | 3.0 Credits",
-    image: "/images/projects/smart_medibox.svg",
     projectFolder: "7_Smart_Medibox_IoT_Health_System",
+    image: "/images/projects/smart_medibox.jpg",
+    liveUrl: "https://github.com/premakumarahps/7_Smart_Medibox_IoT_Health_System",
     fullReport: {
       executiveSummary:
         "Designed and programmed an intelligent IoT medical assistant to ensure timely medication dosage while actively safeguarding light-sensitive pharmaceuticals from photodegradation. Simulated completely on Wokwi and linked via MQTT telemetry to a live remote Node-RED dashboard.",
@@ -250,6 +255,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Arduino UNO", "C++", "PIR Sensor", "DHT11", "Relay Control", "Evaporative Cooling"],
     academicContext: "MT1940 - Fundamentals of Engineering Design",
     gradeBadge: "Grade A | 3.0 Credits",
+    image: "/images/projects/smart_breeze.jpg",
+    liveUrl: "https://github.com/premakumarahps/4_Smart_Breeze_Automated_Fan",
     fullReport: {
       executiveSummary:
         "Developed by team 'Tech Pioneers' to combat electrical energy wastage and skin dehydration caused by standard cooling fans. Combines automated human presence detection with a low-power evaporative cooling mechanism using cotton wicking.",
@@ -277,6 +284,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["ESP8266", "C++ Firmware", "OTA Updates", "Embedded Web Server", "Relay Isolation"],
     academicContext: "Extracurricular Embedded Development",
     gradeBadge: "IoT Deployment",
+    image: "/images/projects/adaptive_ac_blinker.jpg",
+    liveUrl: "https://github.com/premakumarahps/18_Maker_Labs_and_Ventures",
     fullReport: {
       executiveSummary:
         "Engineered an advanced, Wi-Fi controlled AC relay system to manipulate high-voltage standard incandescent and LED loads with customizable, adaptive flashing sequences not achievable with commercial switches.",
@@ -299,6 +308,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Arduino", "Robotics", "HC-SR04", "L298N Motor Driver", "C++ Algorithms"],
     academicContext: "Independent Robotics Project",
     gradeBadge: "Robotics Hardware",
+    image: "/images/projects/autonomous_robot_car.jpg",
+    liveUrl: "https://github.com/premakumarahps/18_Maker_Labs_and_Ventures",
     fullReport: {
       executiveSummary:
         "Built a 4-wheel drive autonomous ground robot engineered to navigate unknown indoor environments without human intervention or pre-mapped floorplans.",
@@ -323,8 +334,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Abaqus FEA", "Ansys Granta Selector", "Super Duplex SS", "Torsional Fatigue", "Cathodic Protection"],
     academicContext: "MT3201 - Comprehensive Design Project",
     gradeBadge: "Grade A+ | 4.0 GPA (Pinnacle Project)",
-    image: "/images/projects/marine_shaft.jpg",
     projectFolder: "12_Marine_Propeller_Shaft_Design",
+    image: "/images/projects/marine_shaft.jpg",
+    liveUrl: "https://github.com/premakumarahps/12_Marine_Propeller_Shaft_Design",
     fullReport: {
       executiveSummary:
         "The capstone design of a 1.6m propulsion shaft coupled to a CAT 3406C marine diesel engine (298 kW / 1800 RPM). Operating in aggressive seawater, the shaft required a 20-year operational life resisting pitting, crevice corrosion, and catastrophic torsional fatigue.",
@@ -353,8 +365,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Materials Science Thesis", "Rice Husk Ash", "EPS Mortar", "PP Fibers", "Fracture Mechanics", "ASTM/SLS"],
     academicContext: "MT4204 - B.Sc. Final Year Research Project",
     gradeBadge: "Grade A | 7.0 Credits",
-    image: "/images/projects/fyp_mortar.svg",
     projectFolder: "14_Final_Year_Project",
+    image: "/images/projects/fyp_mortar.jpg",
+    liveUrl: "https://github.com/premakumarahps/14_Final_Year_Project",
     fullReport: {
       executiveSummary:
         "Investigated the synergistic effects of agricultural waste Rice Husk Ash (RHA) and synthetic Polypropylene (PP) fibers on Expanded Polystyrene (EPS) lightweight cement mortar. Addressed the inherent low compressive strength and brittle fracture modes of EPS aggregates.",
@@ -383,8 +396,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Abaqus CAE", "Solid Edge", "Mesh Convergence", "Hertzian Theory", "Plasticity (PEEQ)"],
     academicContext: "MT4810/MT4811 - FEA Design Project",
     gradeBadge: "Grade A | 3.0 Credits",
-    image: "/images/projects/abaqus_gear.jpg",
     projectFolder: "13_Abaqus_Simulation",
+    image: "/images/projects/abaqus_gear.jpg",
+    liveUrl: "https://github.com/premakumarahps/13_Abaqus_Simulation",
     fullReport: {
       executiveSummary:
         "Conducted non-linear finite element modeling of contact mechanics between a spur gear and pinion under 494 N·m torque. Simulated elasto-plastic deformation, tooth meshing friction, and validated computational results against classical Hertzian contact stress calculations.",
@@ -413,6 +427,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Python GUI", "Chemical Kinetics", "Arrhenius Law", "FTIR Spectroscopy", "TGA / DSC"],
     academicContext: "MT2230 - Kinetics of Materials",
     gradeBadge: "Grade B+ | 3.0 Credits",
+    image: "/images/projects/pvc_stabilization.jpg",
+    liveUrl: "https://github.com/premakumarahps/3_PVC_Degradation_Calculator",
     fullReport: {
       executiveSummary:
         "Researched the photodegradation mechanisms of PVC under ultraviolet radiation (free-radical homolytic C-Cl cleavage and polyene formation). Evaluated Hindered Amine Light Stabilizers (HALS, Tinuvin 770) to interrupt the Denisov cycle.",
@@ -435,6 +451,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["SCAPS-1D", "Perovskite PV", "Quantum Efficiency", "Fill Factor", "Energy Materials"],
     academicContext: "MT4420 - Energy Materials",
     gradeBadge: "Grade A | 3.0 Credits",
+    image: "/images/projects/scaps_solar_simulation.jpg",
+    liveUrl: "https://github.com/premakumarahps/17_Solar_Cell_AI_Simulation_Lab",
     fullReport: {
       executiveSummary:
         "Conducted numerical device simulation on planar heterojunction perovskite solar cells to isolate the physical limits of carrier transport, recombination, and power conversion efficiency (PCE).",
@@ -448,35 +466,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
   },
   {
-    id: "cnt-self-healing",
-    title: "Carbon Nanotubes (CNTs) as Self-Healing Agents",
-    subtitle: "Autonomous Nanocomposite Architecture for Aerospace",
-    category: "materials",
-    shortDescription:
-      "Comprehensive research evaluating SWCNTs and MWCNTs (Young's modulus up to 1 TPa) in polymer matrices for extrinsic microcapsule and intrinsic supramolecular autonomous crack repair.",
-    tags: ["Carbon Nanotubes", "Aerospace Composites", "Self-Healing Polymers", "SEM / EDX", "Dynamic Covalent Bonds", "TGA / DSC"],
-    academicContext: "MT2021/MT2053 - Polymer Science & Communication",
-    gradeBadge: "Grade B+ | 3.0 Credits",
-    fullReport: {
-      executiveSummary:
-        "Investigated the integration of Single-Walled (SWCNTs) and Multi-Walled Carbon Nanotubes (MWCNTs) into advanced polymer composites to engineer autonomous self-healing aerospace materials that detect and heal micro-cracks without human intervention, drastically mitigating catastrophic in-flight failures.",
-      methodology: [
-        "Evaluated extrinsic self-healing architectures: CNT-reinforced microcapsule walls and polyacrylonitrile (PAN) hollow fibers containing liquid healing agents (dicyclopentadiene / epoxy), alongside biomimetic continuous vascular networks.",
-        "Investigated intrinsic self-repair mechanisms: functionalized CNTs forming reversible dynamic covalent bonds and supramolecular interactions ($\\pi$-$\\pi$ stacking, hydrogen bonding, van der Waals forces) enabling repeatable healing at identical fracture locations.",
-        "Synthesized multi-scale characterization protocols: Scanning Electron Microscopy (SEM) for crack bridging verification, EDX, IR & Raman spectroscopy for chemical bond reformation, and DSC/TGA for thermal activation kinetics.",
-        "Analyzed targeted aerospace implementations: composite wing/fuselage delamination healing, deep-space pressurized fuel tank micro-fracture sealing, and piezoresistive structural health sensing in avionics.",
-      ],
-      technicalArchitecture: [
-        "SWCNT & MWCNT Nanoscale Reinforcement Networks",
-        "Dynamic Covalent Chemistry & Reversible Supramolecular Crosslinking",
-        "SEM, EDX, Raman Spectroscopy & DSC Thermal Kinetics",
-        "Aerospace Structural Delamination Standards",
-      ],
-      outcomes:
-        "Awarded Grade 'B+'; delivered an actionable technological roadmap for implementing lightweight, self-repairing polymer nanocomposites resilient against thermal shocks, atomic oxygen (AO) erosion, and UV radiation.",
-    },
-  },
-  {
     id: "tfet-quantum",
     title: "Quantum Mechanics of Tunneling Field Effect Transistors",
     subtitle: "Sub-Bandgap Device Physics Overcoming the 60 mV/dec Limit",
@@ -486,6 +475,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Quantum Mechanics", "TFETs", "WKB Approximation", "Band-to-Band Tunneling", "Solid State Physics", "Heterojunctions"],
     academicContext: "MT2181 - Solid State Materials",
     gradeBadge: "Theoretical Research Project",
+    image: "/images/projects/tfet_quantum.jpg",
+    liveUrl: "https://github.com/premakumarahps/8_TFET_Quantum_Transistor_Solid_State",
     fullReport: {
       executiveSummary:
         "Conducted in-depth solid-state physics research explaining how Tunneling Field Effect Transistors (TFETs) overcome the fundamental thermionic emission barrier (the 60 mV/decade Boltzmann tyranny) of standard MOSFETs by leveraging quantum mechanical Band-to-Band Tunneling (BTBT).",
@@ -514,6 +505,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["X-Ray Diffraction", "Cellulose Crystallinity", "Materials Characterization", "Deacidification", "Forensic Testing", "Calcite Precipitation"],
     academicContext: "MT3054 - Characterization of Materials",
     gradeBadge: "Individual Research Case Study",
+    image: "/images/projects/xrd_paper.jpg",
+    liveUrl: "https://github.com/premakumarahps/11_XRD_Analysis_Research_Review",
     fullReport: {
       executiveSummary:
         "Explored the nanostructural degradation of archival documents by contrasting 19th-century flax 'rag' paper against modern cotton Whatman paper. Applied advanced X-Ray Diffraction (XRD) to quantify how accelerated artificial ageing and aqueous deacidification alter cellulose crystalline fractions.",
@@ -542,6 +535,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Biomaterials", "Dental Implants", "Osseointegration", "Titanium SLA", "Hydroxyapatite", "Bioactive Coatings"],
     academicContext: "MT4120/MT4420 - Biomaterials & Implants",
     gradeBadge: "Advanced Modules Portfolio",
+    image: "/images/projects/dental_implant.jpg",
+    liveUrl: "https://github.com/premakumarahps/my_site",
     fullReport: {
       executiveSummary:
         "Investigated the mechanical and biological interface between living human bone tissue and load-bearing artificial implants (Titanium, Zirconia) to eliminate fibrous encapsulation and accelerate long-term clinical osseointegration.",
@@ -570,6 +565,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Supercapacitors", "Graphene Electrodes", "Cyclic Voltammetry", "EDLC", "Energy Storage", "GCD Testing"],
     academicContext: "MT4420 - Energy Materials",
     gradeBadge: "Laboratory Research Project",
+    image: "/images/projects/graphene_supercapacitor.jpg",
+    liveUrl: "https://github.com/premakumarahps/my_site",
     fullReport: {
       executiveSummary:
         "Synthesized and electrochemically characterized graphene-based Electrical Double-Layer Capacitor (EDLC) electrodes designed to bridge the performance gap between high-energy chemical batteries and high-power dielectric capacitors.",
@@ -600,8 +597,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Machine Design", "SAE 5115 Steel", "AISI 4340", "Soderberg Fatigue", "SKF Bearings", "Gear Kinematics"],
     academicContext: "ME3813 - Machine Design",
     gradeBadge: "Grade A | 2.0 Credits",
-    image: "/images/projects/industrial_gearbox.svg",
     projectFolder: "10_Industrial_Gearbox_Design",
+    image: "/images/projects/industrial_gearbox.jpg",
+    liveUrl: "https://github.com/premakumarahps/10_Industrial_Gearbox_Design",
     fullReport: {
       executiveSummary:
         "Executed the full mechanical, kinematic, and metallurgical design of a 5-forward / 1-reverse manual gearbox for a 2050 kg SUV (Toyota Highlander 2024) navigating road gradients up to $30^\\circ$ and top speeds of 180 km/h.",
@@ -630,6 +628,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Kinematics", "Hydraulic Sizing", "Structural Statics", "SWOT Analysis", "Cost Engineering"],
     academicContext: "ME2851 - Fundamentals of Machine Elements Design",
     gradeBadge: "Individual Design Project",
+    image: "/images/projects/scissor_lift.jpg",
+    liveUrl: "https://github.com/premakumarahps/9_Low_Cost_Scissor_Lift_Mechanism",
     fullReport: {
       executiveSummary:
         "Conceptualized and validated a low-cost, high-efficiency scissor lift for factory floor operations, emphasizing minimal raw material mass, maximum structural stability, and domestic manufacturing viability.",
@@ -653,6 +653,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Investment Casting", "304 Stainless Steel", "Solution Treatment", "Phase Diagrams", "Corrosion Prevention"],
     academicContext: "MT2220 - Ferrous Metals and Alloys",
     gradeBadge: "Grade B | 4.0 Credits",
+    image: "/images/projects/door_handle.jpg",
+    liveUrl: "https://github.com/premakumarahps/6_Door_Handle_Design_and_Heat_Treatment",
     fullReport: {
       executiveSummary:
         "Led the metallurgical optimization and post-casting heat treatment design for a 200mm commercial pull handle cast from austenitic 304 Stainless Steel (18-8).",
@@ -675,6 +677,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["COMSOL Multiphysics", "Engineering Economics", "NPV & IRR", "Shadow Pricing", "Sustainability"],
     academicContext: "MN4023 - Engineering Economics",
     gradeBadge: "Grade B+ | 2.0 Credits",
+    image: "/images/projects/ferrocement_panels.jpg",
+    liveUrl: "https://github.com/premakumarahps/15_Engineering_Economics",
     fullReport: {
       executiveSummary:
         "In collaboration with National Engineering Research & Development Centre (NERDC) prototypes, evaluated the commercial and macro-economic viability of replacing brick masonry with prefabricated lightweight ferrocement wall panels.",
@@ -698,6 +702,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Thermodynamics", "Heat Sink Optimization", "Fourier's Law", "Dimensionless Numbers", "Graphene Cooling", "Fin Profiles"],
     academicContext: "MT1070 - Thermodynamics and Phase Equilibria",
     gradeBadge: "Grade B | 3.0 Credits",
+    image: "/images/projects/heat_sink.jpg",
+    liveUrl: "https://github.com/premakumarahps/5_Heat_Sink_Thermodynamic_Analysis",
     fullReport: {
       executiveSummary:
         "Conducted an in-depth thermodynamic analysis of electronic heat dissipation mechanisms via conduction, convection, and radiation. Evaluated structural fin configurations, material thermal diffusivity (Copper vs. Aluminum), and cutting-edge graphene/nanostructured thermal spreaders to maximize heat transfer efficiency.",
