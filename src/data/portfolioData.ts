@@ -690,8 +690,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
   },
   {
     id: "ferrocement-economic-viability",
-    title: "Ferrocement Wall Panels Economic Viability",
-    subtitle: "COMSOL Static Analysis & Cost-Benefit Modeling",
+    title: "Ferrocement Wall Panels Economic Viability (FBCA & EBCA)",
+    subtitle: "COMSOL Static Analysis & Benefit-Cost Modeling",
     category: "mechanical",
     shortDescription:
       "Techno-economic evaluation of prefabricated ferrocement panels. Combined COMSOL structural deflection simulations with Financial & Economic Benefit-Cost Analysis (FBCA & EBCA).",
