@@ -10,13 +10,8 @@ import ExecutiveProfileCard from "@/components/ExecutiveProfileCard";
 import ContactForm from "@/components/ContactForm";
 import Testimonials from "@/components/Testimonials";
 import InstructorSpotlight from "@/components/InstructorSpotlight";
-import dynamic from "next/dynamic";
+import CurriculumSection from "@/components/CurriculumSection";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
-
-const CurriculumSection = dynamic(() => import("@/components/CurriculumSection"), {
-  loading: () => <div className="h-[500px] w-full animate-pulse bg-muted/50 rounded-2xl flex items-center justify-center text-muted-foreground">Loading Academic Curriculum...</div>,
-  ssr: true, // We want SEO for curriculum
-});
 
 export default function Home() {
   return (
