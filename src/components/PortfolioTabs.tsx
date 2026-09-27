@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { PROJECTS_DATA, ProjectItem } from "@/data/portfolioData";
 import { useScrollLock } from "@/hooks/useScrollLock";
@@ -14,6 +15,8 @@ import {
   BookOpen,
   Award,
   CheckCircle2,
+  ExternalLink,
+  Globe,
 } from "lucide-react";
 
 type CategoryTab = "software" | "iot" | "materials" | "mechanical";
@@ -124,62 +127,93 @@ export default function PortfolioTabs() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative flex flex-col justify-between rounded-2xl bg-card border border-border p-6 sm:p-7 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover-lift spectrum-card"
+              className="group relative flex flex-col justify-between rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover-lift spectrum-card"
             >
-              <div className="space-y-4">
-                {/* Badge Row */}
-                <div className="flex items-center justify-between gap-2 flex-wrap">
-                  {project.academicContext && (
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-md border border-primary/20">
-                      <Award className="h-3 w-3" />
-                      {project.academicContext}
-                    </span>
-                  )}
-                  {project.gradeBadge && (
-                    <span className="text-[11px] font-medium text-muted-foreground bg-muted px-2 py-0.5 rounded">
-                      {project.gradeBadge}
-                    </span>
-                  )}
+              {/* Project Visual Image / Technical Graphic */}
+              {project.image ? (
+                <div className="relative w-full aspect-video overflow-hidden bg-muted/40 border-b border-border/60">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 550px"
+                    className="object-cover object-center transition-transform duration-700 ease-[var(--ease-luxury)] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent pointer-events-none" />
                 </div>
+              ) : (
+                <div className="relative w-full h-12 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-b border-border/40" />
+              )}
 
-                {/* Title & Subtitle */}
-                <div>
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground font-medium mt-0.5">
-                    {project.subtitle}
+              <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
+                <div className="space-y-4">
+                  {/* Badge Row */}
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    {project.academicContext && (
+                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-md border border-primary/20">
+                        <Award className="h-3 w-3" />
+                        {project.academicContext}
+                      </span>
+                    )}
+                    {project.gradeBadge && (
+                      <span className="text-[11px] font-medium text-muted-foreground bg-muted px-2 py-0.5 rounded">
+                        {project.gradeBadge}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Title & Subtitle */}
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground font-medium mt-0.5">
+                      {project.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.shortDescription}
                   </p>
+
+                  {/* Tech Stack Badges */}
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 rounded text-[11px] font-medium bg-background border border-border text-foreground/80"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Description */}
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {project.shortDescription}
-                </p>
+                {/* Action Buttons */}
+                <div className="pt-6 mt-4 border-t border-border/60 flex items-center justify-between flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProject(project)}
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary hover:text-primary/80 transition-colors group/btn"
+                  >
+                    <span>Technical Deep Dive</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
+                  </button>
 
-                {/* Tech Stack Badges */}
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 rounded text-[11px] font-medium bg-background border border-border text-foreground/80"
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/15 hover:bg-primary/25 text-primary border border-primary/30 text-xs font-semibold transition-all hover:scale-[1.02] shadow-xs"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <Globe className="h-3.5 w-3.5" />
+                      <span>Launch App</span>
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
                 </div>
-              </div>
-
-              {/* Action Button */}
-              <div className="pt-6 mt-4 border-t border-border/60 flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary hover:text-primary/80 transition-colors group/btn"
-                >
-                  <span>Technical Deep Dive</span>
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
-                </button>
               </div>
             </div>
           ))}
@@ -230,6 +264,19 @@ export default function PortfolioTabs() {
                 <X className="h-5 w-5" />
               </button>
             </div>
+
+            {/* Modal Hero Image */}
+            {selectedProject.image && (
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border shadow-md">
+                <Image
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 750px"
+                  className="object-cover"
+                />
+              </div>
+            )}
 
             {/* Executive Summary */}
             <div className="space-y-2">
@@ -298,8 +345,29 @@ export default function PortfolioTabs() {
               ))}
             </div>
 
-            {/* Close action */}
-            <div className="pt-4 flex justify-end">
+            {/* Modal Actions */}
+            <div className="pt-4 flex items-center justify-between border-t border-border flex-wrap gap-3">
+              {selectedProject.liveUrl ? (
+                <a
+                  href={selectedProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs sm:text-sm font-semibold shadow hover:bg-primary/90 transition-all hover:scale-[1.02]"
+                >
+                  <Globe className="h-4 w-4" />
+                  <span>Launch Live Application</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              ) : selectedProject.projectFolder ? (
+                <span className="text-xs text-muted-foreground font-mono bg-muted/60 px-3 py-1.5 rounded-lg border border-border/60">
+                  📁 {selectedProject.projectFolder}
+                </span>
+              ) : (
+                <span className="text-xs text-muted-foreground">
+                  {selectedProject.academicContext || "Engineering Project"}
+                </span>
+              )}
+
               <button
                 type="button"
                 onClick={() => setSelectedProject(null)}

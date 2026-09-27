@@ -7,6 +7,9 @@ export interface ProjectItem {
   tags: string[];
   academicContext?: string;
   gradeBadge?: string;
+  image?: string;
+  liveUrl?: string;
+  projectFolder?: string;
   fullReport: {
     executiveSummary: string;
     methodology: string[];
@@ -105,6 +108,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Next.js", "Express", "Supabase", "PostgreSQL", "Vercel Serverless", "JWT Auth"],
     academicContext: "Extracurricular / Production Platform",
     gradeBadge: "Live Production App",
+    image: "/images/projects/lms_platform.jpg",
+    liveUrl: "https://physics-academy.vercel.app/",
+    projectFolder: "2_AL_Physics_Academy",
     fullReport: {
       executiveSummary:
         "Architected and deployed a dedicated, high-availability serverless web platform for A/L Physics tuition. The platform bridges classroom learning with self-paced digital education, providing role-based security, automated progress tracking, and seamless document delivery.",
@@ -133,6 +139,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["HTML5", "CSS3", "JavaScript", "Google Apps Script", "Google Sheets API", "Cloud Database"],
     academicContext: "Independent Systems Architecture",
     gradeBadge: "Daily Active Tool",
+    image: "/images/projects/family_finance.svg",
+    projectFolder: "18_Maker_Labs_and_Ventures/projects/family_money_manager",
     fullReport: {
       executiveSummary:
         "Engineered an elegant, zero-cost personal finance web application optimized for mobile browsers. The application allows dual-user concurrent expense and income tracking with automated category breakdowns and monthly analytics.",
@@ -160,6 +168,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Python", "SciPy", "NumPy", "RMSD Algorithm", "Geotechnical Engineering"],
     academicContext: "Industrial Internship Innovation (CEC / RDA)",
     gradeBadge: "Field Implemented",
+    image: "/images/projects/dcp_analyzer.svg",
+    projectFolder: "16_CEC_Internship/dcp_interactive_tool",
     fullReport: {
       executiveSummary:
         "Developed during a 24-week industrial placement with Consulting Engineering & Contractors (Pvt) Ltd. on an RDA road project. Replaced tedious, error-prone manual graph plotting with an automated algorithm that determines exact subgrade and base layer transition depths from dynamic cone penetrometer (DCP) blow counts.",
@@ -210,6 +220,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["ESP32", "C++", "MQTT", "Node-RED", "Servo PWM", "Wokwi Simulator", "DHT22"],
     academicContext: "EN2853 - Embedded Systems and Applications",
     gradeBadge: "Grade A- | 3.0 Credits",
+    image: "/images/projects/smart_medibox.svg",
+    projectFolder: "7_Smart_Medibox_IoT_Health_System",
     fullReport: {
       executiveSummary:
         "Designed and programmed an intelligent IoT medical assistant to ensure timely medication dosage while actively safeguarding light-sensitive pharmaceuticals from photodegradation. Simulated completely on Wokwi and linked via MQTT telemetry to a live remote Node-RED dashboard.",
@@ -311,6 +323,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Abaqus FEA", "Ansys Granta Selector", "Super Duplex SS", "Torsional Fatigue", "Cathodic Protection"],
     academicContext: "MT3201 - Comprehensive Design Project",
     gradeBadge: "Grade A+ | 4.0 GPA (Pinnacle Project)",
+    image: "/images/projects/marine_shaft.jpg",
+    projectFolder: "12_Marine_Propeller_Shaft_Design",
     fullReport: {
       executiveSummary:
         "The capstone design of a 1.6m propulsion shaft coupled to a CAT 3406C marine diesel engine (298 kW / 1800 RPM). Operating in aggressive seawater, the shaft required a 20-year operational life resisting pitting, crevice corrosion, and catastrophic torsional fatigue.",
@@ -339,6 +353,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Materials Science Thesis", "Rice Husk Ash", "EPS Mortar", "PP Fibers", "Fracture Mechanics", "ASTM/SLS"],
     academicContext: "MT4204 - B.Sc. Final Year Research Project",
     gradeBadge: "Grade A | 7.0 Credits",
+    image: "/images/projects/fyp_mortar.svg",
+    projectFolder: "14_Final_Year_Project",
     fullReport: {
       executiveSummary:
         "Investigated the synergistic effects of agricultural waste Rice Husk Ash (RHA) and synthetic Polypropylene (PP) fibers on Expanded Polystyrene (EPS) lightweight cement mortar. Addressed the inherent low compressive strength and brittle fracture modes of EPS aggregates.",
@@ -367,6 +383,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Abaqus CAE", "Solid Edge", "Mesh Convergence", "Hertzian Theory", "Plasticity (PEEQ)"],
     academicContext: "MT4810/MT4811 - FEA Design Project",
     gradeBadge: "Grade A | 3.0 Credits",
+    image: "/images/projects/abaqus_gear.jpg",
+    projectFolder: "13_Abaqus_Simulation",
     fullReport: {
       executiveSummary:
         "Conducted non-linear finite element modeling of contact mechanics between a spur gear and pinion under 494 N·m torque. Simulated elasto-plastic deformation, tooth meshing friction, and validated computational results against classical Hertzian contact stress calculations.",
@@ -582,6 +600,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Machine Design", "SAE 5115 Steel", "AISI 4340", "Soderberg Fatigue", "SKF Bearings", "Gear Kinematics"],
     academicContext: "ME3813 - Machine Design",
     gradeBadge: "Grade A | 2.0 Credits",
+    image: "/images/projects/industrial_gearbox.svg",
+    projectFolder: "10_Industrial_Gearbox_Design",
     fullReport: {
       executiveSummary:
         "Executed the full mechanical, kinematic, and metallurgical design of a 5-forward / 1-reverse manual gearbox for a 2050 kg SUV (Toyota Highlander 2024) navigating road gradients up to $30^\\circ$ and top speeds of 180 km/h.",

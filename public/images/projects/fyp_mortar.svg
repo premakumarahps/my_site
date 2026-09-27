@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_fyp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#059669" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg_fyp)"/>
+  <circle cx="400" cy="210" r="160" fill="#10b981" opacity="0.12" filter="blur(50px)"/>
+  <!-- Microstructure Matrix Hexagon / Aggregate Representation -->
+  <polygon points="400,90 490,145 490,255 400,310 310,255 310,145" fill="#1e293b" stroke="#10b981" stroke-width="2" opacity="0.9"/>
+  <!-- Fiber network lines -->
+  <line x1="330" y1="160" x2="470" y2="240" stroke="#34d399" stroke-width="3" stroke-linecap="round"/>
+  <line x1="350" y1="250" x2="450" y2="150" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="380" y1="120" x2="410" y2="280" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+  <!-- RHA Pozzolanic Nanoparticles -->
+  <circle cx="370" cy="180" r="8" fill="#10b981"/>
+  <circle cx="430" cy="210" r="6" fill="#34d399"/>
+  <circle cx="390" cy="230" r="9" fill="#059669"/>
+  <text x="400" y="360" font-family="system-ui, sans-serif" font-size="18" font-weight="800" text-anchor="middle" fill="#f8fafc">RHA &amp; Polypropylene Fiber Modified Mortar</text>
+  <text x="400" y="390" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#6ee7b7">B.Sc. Final Year Thesis • Compressive &amp; Thermal Conductivity Modeling</text>
+</svg>

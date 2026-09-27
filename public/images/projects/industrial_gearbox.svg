@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_gear" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#d97706" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg_gear)"/>
+  <!-- Gear teeth outlines -->
+  <circle cx="340" cy="200" r="100" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 6"/>
+  <circle cx="340" cy="200" r="40" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+  <circle cx="480" cy="200" r="60" fill="none" stroke="#fbbf24" stroke-width="4" stroke-dasharray="8 6"/>
+  <circle cx="480" cy="200" r="25" fill="#1e293b" stroke="#fbbf24" stroke-width="3"/>
+  <text x="400" y="340" font-family="system-ui, sans-serif" font-size="18" font-weight="800" text-anchor="middle" fill="#f8fafc">Automotive Gearbox Mechanical Design</text>
+  <text x="400" y="370" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#fbbf24">AGMA Contact Stress • 20MnCr5 Carburized • Shaft Deflection</text>
+</svg>
