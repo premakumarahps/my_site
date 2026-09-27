@@ -363,26 +363,32 @@ export default function PortfolioTabs() {
 
             {/* Sticky Modal Actions Footer */}
             <div className="px-6 py-4 sm:px-8 border-t border-border bg-card/95 backdrop-blur-md flex items-center justify-between flex-wrap gap-3 shrink-0">
-              {selectedProject.liveUrl ? (
-                <a
-                  href={selectedProject.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs sm:text-sm font-semibold shadow hover:bg-primary/90 transition-all hover:scale-[1.02]"
-                >
-                  <Globe className="h-4 w-4" />
-                  <span>{selectedProject.id === "lms-saas" ? "Launch Live Platform" : "Visit Project Website"}</span>
-                  <ExternalLink className="h-3.5 w-3.5" />
-                </a>
-              ) : selectedProject.projectFolder ? (
-                <span className="text-xs text-muted-foreground font-mono bg-muted/60 px-3 py-1.5 rounded-lg border border-border/60">
-                  📁 {selectedProject.projectFolder}
-                </span>
-              ) : (
-                <span className="text-xs text-muted-foreground">
-                  {selectedProject.academicContext || "Engineering Project"}
-                </span>
-              )}
+              <div className="flex items-center gap-2 flex-wrap">
+                {selectedProject.liveUrl && (
+                  <a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs sm:text-sm font-semibold shadow hover:bg-primary/90 transition-all hover:scale-[1.02]"
+                  >
+                    <Globe className="h-4 w-4" />
+                    <span>{selectedProject.id === "lms-saas" ? "Launch Live Platform" : "Launch Live Vercel App"}</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                )}
+                {selectedProject.githubUrl && (
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-muted hover:bg-muted/80 text-foreground border border-border text-xs sm:text-sm font-semibold transition-all hover:scale-[1.02]"
+                  >
+                    <Code className="h-4 w-4" />
+                    <span>GitHub Code</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                )}
+              </div>
 
               <button
                 type="button"

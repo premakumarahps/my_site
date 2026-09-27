@@ -9,6 +9,7 @@ export interface ProjectItem {
   gradeBadge?: string;
   image?: string;
   liveUrl?: string;
+  githubUrl?: string;
   projectFolder?: string;
   fullReport: {
     executiveSummary: string;
@@ -111,6 +112,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     projectFolder: "2_AL_Physics_Academy",
     image: "/images/projects/lms_platform.jpg",
     liveUrl: "https://physics-academy.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/physics-academy",
     fullReport: {
       executiveSummary:
         "Architected and deployed a dedicated, high-availability serverless web platform for A/L Physics tuition. The platform bridges classroom learning with self-paced digital education, providing role-based security, automated progress tracking, and seamless document delivery.",
@@ -141,7 +143,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     gradeBadge: "Daily Active Tool",
     projectFolder: "18_Maker_Labs_and_Ventures/projects/family_money_manager",
     image: "/images/projects/family_finance.jpg",
-    liveUrl: "https://github.com/premakumarahps/18_Maker_Labs_and_Ventures",
+    liveUrl: "https://family-money-manager.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/family-money-manager",
     fullReport: {
       executiveSummary:
         "Engineered an elegant, zero-cost personal finance web application optimized for mobile browsers. The application allows dual-user concurrent expense and income tracking with automated category breakdowns and monthly analytics.",
@@ -171,7 +174,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     gradeBadge: "Field Implemented",
     projectFolder: "16_CEC_Internship/dcp_interactive_tool",
     image: "/images/projects/dcp_analyzer.jpg",
-    liveUrl: "https://github.com/premakumarahps/16_CEC_Internship",
+    liveUrl: "https://cec-road-rehabilitation-internship.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/cec-road-rehabilitation-internship",
     fullReport: {
       executiveSummary:
         "Developed during a 24-week industrial placement with Consulting Engineering & Contractors (Pvt) Ltd. on an RDA road project. Replaced tedious, error-prone manual graph plotting with an automated algorithm that determines exact subgrade and base layer transition depths from dynamic cone penetrometer (DCP) blow counts.",
@@ -200,7 +204,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "Computational Materials Research",
     gradeBadge: "Research Simulation",
     image: "/images/projects/perovskite_predictor.jpg",
-    liveUrl: "https://github.com/premakumarahps/17_Solar_Cell_AI_Simulation_Lab",
+    liveUrl: "https://solar-cell-ai-simulation-lab.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/solar-cell-ai-simulation-lab",
     fullReport: {
       executiveSummary:
         "A computational tool bridging kinetic chemical equations and photovoltaic longevity predictions. Allows researchers to evaluate degradation rates and stabilizer efficacies under variable solar irradiance and thermal conditions.",
@@ -226,7 +231,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     gradeBadge: "Grade A- | 3.0 Credits",
     projectFolder: "7_Smart_Medibox_IoT_Health_System",
     image: "/images/projects/smart_medibox.jpg",
-    liveUrl: "https://github.com/premakumarahps/7_Smart_Medibox_IoT_Health_System",
+    liveUrl: "https://smart-medibox-iot-system.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/smart-medibox-iot-system",
     fullReport: {
       executiveSummary:
         "Designed and programmed an intelligent IoT medical assistant to ensure timely medication dosage while actively safeguarding light-sensitive pharmaceuticals from photodegradation. Simulated completely on Wokwi and linked via MQTT telemetry to a live remote Node-RED dashboard.",
@@ -256,7 +262,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MT1940 - Fundamentals of Engineering Design",
     gradeBadge: "Grade A | 3.0 Credits",
     image: "/images/projects/smart_breeze.jpg",
-    liveUrl: "https://github.com/premakumarahps/4_Smart_Breeze_Automated_Fan",
+    liveUrl: "https://smart-breeze-automated-fan.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/smart-breeze-automated-fan",
     fullReport: {
       executiveSummary:
         "Developed by team 'Tech Pioneers' to combat electrical energy wastage and skin dehydration caused by standard cooling fans. Combines automated human presence detection with a low-power evaporative cooling mechanism using cotton wicking.",
@@ -285,7 +292,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "Extracurricular Embedded Development",
     gradeBadge: "IoT Deployment",
     image: "/images/projects/adaptive_ac_blinker.jpg",
-    liveUrl: "https://github.com/premakumarahps/18_Maker_Labs_and_Ventures",
+    liveUrl: "https://adaptive-iot-smart-relay.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/adaptive-iot-smart-relay",
     fullReport: {
       executiveSummary:
         "Engineered an advanced, Wi-Fi controlled AC relay system to manipulate high-voltage standard incandescent and LED loads with customizable, adaptive flashing sequences not achievable with commercial switches.",
@@ -309,7 +317,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "Independent Robotics Project",
     gradeBadge: "Robotics Hardware",
     image: "/images/projects/autonomous_robot_car.jpg",
-    liveUrl: "https://github.com/premakumarahps/18_Maker_Labs_and_Ventures",
+    liveUrl: "https://autonomous-arduino-rover.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/autonomous-arduino-rover",
     fullReport: {
       executiveSummary:
         "Built a 4-wheel drive autonomous ground robot engineered to navigate unknown indoor environments without human intervention or pre-mapped floorplans.",
@@ -336,7 +345,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     gradeBadge: "Grade A+ | 4.0 GPA (Pinnacle Project)",
     projectFolder: "12_Marine_Propeller_Shaft_Design",
     image: "/images/projects/marine_shaft.jpg",
-    liveUrl: "https://github.com/premakumarahps/12_Marine_Propeller_Shaft_Design",
+    liveUrl: "https://marine-propulsion-shaft-design.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/marine-propulsion-shaft-design",
     fullReport: {
       executiveSummary:
         "The capstone design of a 1.6m propulsion shaft coupled to a CAT 3406C marine diesel engine (298 kW / 1800 RPM). Operating in aggressive seawater, the shaft required a 20-year operational life resisting pitting, crevice corrosion, and catastrophic torsional fatigue.",
@@ -367,7 +377,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     gradeBadge: "Grade A | 7.0 Credits",
     projectFolder: "14_Final_Year_Project",
     image: "/images/projects/fyp_mortar.jpg",
-    liveUrl: "https://github.com/premakumarahps/14_Final_Year_Project",
+    liveUrl: "https://fyp-sustainable-eps-mortar.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/fyp-sustainable-eps-mortar",
     fullReport: {
       executiveSummary:
         "Investigated the synergistic effects of agricultural waste Rice Husk Ash (RHA) and synthetic Polypropylene (PP) fibers on Expanded Polystyrene (EPS) lightweight cement mortar. Addressed the inherent low compressive strength and brittle fracture modes of EPS aggregates.",
@@ -398,7 +409,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     gradeBadge: "Grade A | 3.0 Credits",
     projectFolder: "13_Abaqus_Simulation",
     image: "/images/projects/abaqus_gear.jpg",
-    liveUrl: "https://github.com/premakumarahps/13_Abaqus_Simulation",
+    liveUrl: "https://spur-gear-contact-fea-abaqus.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/spur-gear-contact-fea-abaqus",
     fullReport: {
       executiveSummary:
         "Conducted non-linear finite element modeling of contact mechanics between a spur gear and pinion under 494 N·m torque. Simulated elasto-plastic deformation, tooth meshing friction, and validated computational results against classical Hertzian contact stress calculations.",
@@ -428,7 +440,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MT2230 - Kinetics of Materials",
     gradeBadge: "Grade B+ | 3.0 Credits",
     image: "/images/projects/pvc_stabilization.jpg",
-    liveUrl: "https://github.com/premakumarahps/3_PVC_Degradation_Calculator",
+    liveUrl: "https://pvc-degradation-calculator.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/pvc-degradation-calculator",
     fullReport: {
       executiveSummary:
         "Researched the photodegradation mechanisms of PVC under ultraviolet radiation (free-radical homolytic C-Cl cleavage and polyene formation). Evaluated Hindered Amine Light Stabilizers (HALS, Tinuvin 770) to interrupt the Denisov cycle.",
@@ -452,7 +465,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MT4420 - Energy Materials",
     gradeBadge: "Grade A | 3.0 Credits",
     image: "/images/projects/scaps_solar_simulation.jpg",
-    liveUrl: "https://github.com/premakumarahps/17_Solar_Cell_AI_Simulation_Lab",
+    liveUrl: "https://solar-cell-ai-simulation-lab.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/solar-cell-ai-simulation-lab",
     fullReport: {
       executiveSummary:
         "Conducted numerical device simulation on planar heterojunction perovskite solar cells to isolate the physical limits of carrier transport, recombination, and power conversion efficiency (PCE).",
@@ -476,7 +490,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MT2181 - Solid State Materials",
     gradeBadge: "Theoretical Research Project",
     image: "/images/projects/tfet_quantum.jpg",
-    liveUrl: "https://github.com/premakumarahps/8_TFET_Quantum_Transistor_Solid_State",
+    liveUrl: "https://tfet-quantum-transistor-physics.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/tfet-quantum-transistor-physics",
     fullReport: {
       executiveSummary:
         "Conducted in-depth solid-state physics research explaining how Tunneling Field Effect Transistors (TFETs) overcome the fundamental thermionic emission barrier (the 60 mV/decade Boltzmann tyranny) of standard MOSFETs by leveraging quantum mechanical Band-to-Band Tunneling (BTBT).",
@@ -506,7 +521,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MT3054 - Characterization of Materials",
     gradeBadge: "Individual Research Case Study",
     image: "/images/projects/xrd_paper.jpg",
-    liveUrl: "https://github.com/premakumarahps/11_XRD_Analysis_Research_Review",
+    liveUrl: "https://xrd-paper-deacidification-analysis.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/xrd-paper-deacidification-analysis",
     fullReport: {
       executiveSummary:
         "Explored the nanostructural degradation of archival documents by contrasting 19th-century flax 'rag' paper against modern cotton Whatman paper. Applied advanced X-Ray Diffraction (XRD) to quantify how accelerated artificial ageing and aqueous deacidification alter cellulose crystalline fractions.",
@@ -536,7 +552,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MT4120/MT4420 - Biomaterials & Implants",
     gradeBadge: "Advanced Modules Portfolio",
     image: "/images/projects/dental_implant.jpg",
-    liveUrl: "https://github.com/premakumarahps/my_site",
+    liveUrl: "https://premakumarahps.vercel.app/#portfolio",
+    githubUrl: "https://github.com/premakumarahps/my_site",
     fullReport: {
       executiveSummary:
         "Investigated the mechanical and biological interface between living human bone tissue and load-bearing artificial implants (Titanium, Zirconia) to eliminate fibrous encapsulation and accelerate long-term clinical osseointegration.",
@@ -566,7 +583,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MT4420 - Energy Materials",
     gradeBadge: "Laboratory Research Project",
     image: "/images/projects/graphene_supercapacitor.jpg",
-    liveUrl: "https://github.com/premakumarahps/my_site",
+    liveUrl: "https://premakumarahps.vercel.app/#portfolio",
+    githubUrl: "https://github.com/premakumarahps/my_site",
     fullReport: {
       executiveSummary:
         "Synthesized and electrochemically characterized graphene-based Electrical Double-Layer Capacitor (EDLC) electrodes designed to bridge the performance gap between high-energy chemical batteries and high-power dielectric capacitors.",
@@ -599,7 +617,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     gradeBadge: "Grade A | 2.0 Credits",
     projectFolder: "10_Industrial_Gearbox_Design",
     image: "/images/projects/industrial_gearbox.jpg",
-    liveUrl: "https://github.com/premakumarahps/10_Industrial_Gearbox_Design",
+    liveUrl: "https://automotive-gearbox-machine-design.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/automotive-gearbox-machine-design",
     fullReport: {
       executiveSummary:
         "Executed the full mechanical, kinematic, and metallurgical design of a 5-forward / 1-reverse manual gearbox for a 2050 kg SUV (Toyota Highlander 2024) navigating road gradients up to $30^\\circ$ and top speeds of 180 km/h.",
@@ -629,7 +648,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "ME2851 - Fundamentals of Machine Elements Design",
     gradeBadge: "Individual Design Project",
     image: "/images/projects/scissor_lift.jpg",
-    liveUrl: "https://github.com/premakumarahps/9_Low_Cost_Scissor_Lift_Mechanism",
+    liveUrl: "https://low-cost-scissor-lift-design.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/low-cost-scissor-lift-design",
     fullReport: {
       executiveSummary:
         "Conceptualized and validated a low-cost, high-efficiency scissor lift for factory floor operations, emphasizing minimal raw material mass, maximum structural stability, and domestic manufacturing viability.",
@@ -654,7 +674,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MT2220 - Ferrous Metals and Alloys",
     gradeBadge: "Grade B | 4.0 Credits",
     image: "/images/projects/door_handle.jpg",
-    liveUrl: "https://github.com/premakumarahps/6_Door_Handle_Design_and_Heat_Treatment",
+    liveUrl: "https://stainless-steel-door-handle-metallurgy.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/stainless-steel-door-handle-metallurgy",
     fullReport: {
       executiveSummary:
         "Led the metallurgical optimization and post-casting heat treatment design for a 200mm commercial pull handle cast from austenitic 304 Stainless Steel (18-8).",
@@ -678,7 +699,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MN4023 - Engineering Economics",
     gradeBadge: "Grade B+ | 2.0 Credits",
     image: "/images/projects/ferrocement_panels.jpg",
-    liveUrl: "https://github.com/premakumarahps/15_Engineering_Economics",
+    liveUrl: "https://fbca-ebca-eng-eco.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/fbca-ebca-eng-eco",
     fullReport: {
       executiveSummary:
         "In collaboration with National Engineering Research & Development Centre (NERDC) prototypes, evaluated the commercial and macro-economic viability of replacing brick masonry with prefabricated lightweight ferrocement wall panels.",
@@ -703,7 +725,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     academicContext: "MT1070 - Thermodynamics and Phase Equilibria",
     gradeBadge: "Grade B | 3.0 Credits",
     image: "/images/projects/heat_sink.jpg",
-    liveUrl: "https://github.com/premakumarahps/5_Heat_Sink_Thermodynamic_Analysis",
+    liveUrl: "https://heat-sink-thermodynamic-analysis.vercel.app/",
+    githubUrl: "https://github.com/premakumarahps/heat-sink-thermodynamic-analysis",
     fullReport: {
       executiveSummary:
         "Conducted an in-depth thermodynamic analysis of electronic heat dissipation mechanisms via conduction, convection, and radiation. Evaluated structural fin configurations, material thermal diffusivity (Copper vs. Aluminum), and cutting-edge graphene/nanostructured thermal spreaders to maximize heat transfer efficiency.",
