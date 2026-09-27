@@ -3,13 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Atom } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
+    const lastScrollYRef = useRef(0);
     const [activeSection, setActiveSection] = useState("");
+
+    // Lock body scroll safely when mobile menu is open without clobbering modal state
+    useScrollLock(mobileMenuOpen);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,14 +24,19 @@ export default function Navbar() {
                 setIsVisible(true);
             } else {
                 // Show navbar when scrolling up, hide when scrolling down
-                if (currentScrollY < lastScrollY) {
+                if (currentScrollY < lastScrollYRef.current) {
                     setIsVisible(true);
                 } else {
                     setIsVisible(false);
                 }
             }
 
-            setLastScrollY(currentScrollY);
+            lastScrollYRef.current = currentScrollY;
+
+            // Reactivate Home when scrolled back near top
+            if (currentScrollY < 80) {
+                setActiveSection("");
+            }
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
@@ -35,7 +44,7 @@ export default function Navbar() {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, [lastScrollY]);
+    }, []);
 
     // Track active section using Intersection Observer
     useEffect(() => {
@@ -59,18 +68,6 @@ export default function Navbar() {
 
         return () => observer.disconnect();
     }, []);
-
-    // Prevent body scroll when mobile menu is open
-    useEffect(() => {
-        if (mobileMenuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
-        return () => {
-            document.body.style.overflow = "";
-        };
-    }, [mobileMenuOpen]);
 
     const navLinks = [
         { href: "/", label: "Home", section: "" },
@@ -143,6 +140,7 @@ export default function Navbar() {
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                 className="bg-card inline-flex items-center justify-center p-3 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary transition-colors min-w-[48px] min-h-[48px]"
                                 aria-expanded={mobileMenuOpen}
+                                aria-controls="mobile-menu-panel"
                                 aria-label="Toggle navigation menu"
                             >
                                 <span className="sr-only">
@@ -176,6 +174,7 @@ export default function Navbar() {
 
             {/* Mobile menu panel */}
             <div
+                id="mobile-menu-panel"
                 className={`md:hidden fixed top-16 left-0 right-0 bg-background border-b border-border z-40 transition-all duration-300 ease-out ${mobileMenuOpen
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 -translate-y-4 pointer-events-none"
@@ -187,7 +186,7 @@ export default function Navbar() {
                             key={link.label}
                             href={link.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className={`block px-4 py-3 rounded-md text-base font-medium transition-all min-h-[48px] flex items-center ${isActiveLink(link.section)
+                            className={`px-4 py-3 rounded-md text-base font-medium transition-all min-h-[48px] flex items-center ${isActiveLink(link.section)
                                 ? "text-primary bg-primary/10"
                                 : "text-muted-foreground hover:text-foreground hover:bg-muted"
                                 }`}
@@ -201,7 +200,7 @@ export default function Navbar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => setMobileMenuOpen(false)}
-                        className="bg-primary hover:bg-primary/90 text-primary-foreground block px-4 py-3 rounded-md text-base font-medium transition-all shadow inline-flex items-center gap-2 min-h-[48px] mt-2"
+                        className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-base font-medium transition-all shadow flex items-center gap-2 min-h-[48px] mt-2"
                     >
                         <Atom className="h-5 w-5" />
                         Physics Academy

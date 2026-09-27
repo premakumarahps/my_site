@@ -21,6 +21,7 @@ export default function InstructorSpotlight() {
               src="/images/sadun-academic.jpg"
               alt="Sadun Premakumara - Lead Physics Educator on University of Moratuwa campus"
               fill
+              quality={80}
               sizes="(max-width: 768px) 100vw, 360px"
               className="object-cover object-top transition-transform duration-700 ease-[var(--ease-luxury)] group-hover:scale-[1.03]"
             />

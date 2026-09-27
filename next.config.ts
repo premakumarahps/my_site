@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  // Intentional redirects to bridge legacy / external Physics Academy routes to the live web application
   async redirects() {
     return [
       {

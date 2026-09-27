@@ -111,6 +111,7 @@ export default function ExecutiveProfileCard() {
                 alt={p.imageAlt}
                 fill
                 priority={p.id === "engineering"}
+                quality={80}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
                 className="object-cover object-top transition-transform duration-700 ease-[var(--ease-luxury)] group-hover:scale-[1.02]"
               />

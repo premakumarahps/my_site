@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { PROJECTS_DATA, ProjectItem } from "@/data/portfolioData";
+import { useScrollLock } from "@/hooks/useScrollLock";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 import {
   Code,
   Cpu,
@@ -27,22 +29,12 @@ export default function PortfolioTabs() {
   const [activeTab, setActiveTab] = useState<CategoryTab>("materials");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
-  // Close modal on ESC
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelectedProject(null);
-    };
-    if (selectedProject) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedProject]);
+  // Lock scroll safely & trap keyboard focus inside modal
+  useScrollLock(Boolean(selectedProject));
+  const modalRef = useFocusTrap<HTMLDivElement>({
+    isActive: Boolean(selectedProject),
+    onClose: () => setSelectedProject(null),
+  });
 
   const tabs: TabOption[] = [
     {
@@ -201,9 +193,12 @@ export default function PortfolioTabs() {
           onClick={() => setSelectedProject(null)}
           role="dialog"
           aria-modal="true"
+          aria-labelledby="portfolio-modal-title"
         >
           <div
-            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-card border border-border shadow-2xl p-6 sm:p-8 space-y-6 text-foreground animate-scale-in"
+            ref={modalRef}
+            tabIndex={-1}
+            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-card border border-border shadow-2xl p-6 sm:p-8 space-y-6 text-foreground animate-scale-in focus:outline-none"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -219,7 +214,7 @@ export default function PortfolioTabs() {
                     </span>
                   )}
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground">
+                <h3 id="portfolio-modal-title" className="text-2xl sm:text-3xl font-extrabold text-foreground">
                   {selectedProject.title}
                 </h3>
                 <p className="text-sm text-muted-foreground font-medium">

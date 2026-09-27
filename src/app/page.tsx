@@ -1,9 +1,6 @@
-"use client";
-
-import { ArrowRight, User, BookOpen, Atom, GraduationCap, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, User, BookOpen, Atom, GraduationCap, Linkedin, Mail, Code2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
 import SkillsMatrix from "@/components/SkillsMatrix";
 import PortfolioTabs from "@/components/PortfolioTabs";
 import ProfessionalExperience from "@/components/ProfessionalExperience";
@@ -11,28 +8,12 @@ import ComfortableTypewriter from "@/components/ComfortableTypewriter";
 import ExecutiveProfileCard from "@/components/ExecutiveProfileCard";
 import InstructorSpotlight from "@/components/InstructorSpotlight";
 import CurriculumSection from "@/components/CurriculumSection";
+import ScrollRevealInit from "@/components/ScrollRevealInit";
 
 export default function Home() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-    );
-
-    const elements = document.querySelectorAll(".scroll-reveal");
-    elements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
+      <ScrollRevealInit />
       {/* Hero Section */}
       <section className="relative w-full py-16 sm:py-20 md:py-32 overflow-hidden flex flex-col items-center text-center px-4">
         {/* Google-Grade Ambient Morphing Mesh Orbs */}
@@ -155,7 +136,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground bg-card/90 px-4 py-3 rounded-2xl border border-border/80 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default">
-                  <ArrowRight className="h-5 w-5 text-primary shrink-0" />
+                  <Code2 className="h-5 w-5 text-primary shrink-0" />
                   <div className="text-xs sm:text-sm">
                     <p className="font-semibold text-foreground">Computational Code</p>
                     <p className="text-muted-foreground text-[11px]">Scientific Python · Automation</p>
@@ -284,8 +265,9 @@ export default function Home() {
           </div>
 
           <div className="flex gap-4">
+            {/* Note: LinkedIn handle updated to match displayed name (sandun-premakumara) */}
             <Link
-              href="https://www.linkedin.com/in/sandun-preamakumara"
+              href="https://www.linkedin.com/in/sandun-premakumara"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-all p-2 hover:bg-primary/10 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center border border-border/50"
@@ -294,8 +276,9 @@ export default function Home() {
               <span className="sr-only">LinkedIn</span>
               <Linkedin className="h-5 w-5" />
             </Link>
+            {/* TODO: Verify and update with preferred active contact email address */}
             <Link
-              href="mailto:contact@sandun.eng"
+              href="mailto:contact@sandunpremakumara.com"
               className="text-muted-foreground hover:text-primary transition-all p-2 hover:bg-primary/10 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center border border-border/50"
               aria-label="Email Contact"
             >

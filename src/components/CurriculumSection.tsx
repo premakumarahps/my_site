@@ -6,6 +6,8 @@ import {
   SEMESTER_SUMMARIES,
   ModuleItem,
 } from "@/data/curriculumData";
+import { useScrollLock } from "@/hooks/useScrollLock";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 import {
   BookOpen,
   GraduationCap,
@@ -41,6 +43,19 @@ export default function CurriculumSection() {
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedModuleCode, setExpandedModuleCode] = useState<string | null>(null);
   const [modalModule, setModalModule] = useState<ModuleItem | null>(null);
+
+  // Safely lock scroll & trap keyboard focus for module detail modal
+  useScrollLock(Boolean(modalModule));
+  const modalRef = useFocusTrap<HTMLDivElement>({
+    isActive: Boolean(modalModule),
+    onClose: () => setModalModule(null),
+  });
+
+  const handleSemesterChange = (semester: number | "all") => {
+    setSelectedSemester(semester);
+    setSelectedDomain("All");
+    setSearchQuery("");
+  };
 
   const domains: DomainFilter[] = [
     "All",
@@ -85,7 +100,7 @@ export default function CurriculumSection() {
           "Comprehensive accredited engineering curriculum encompassing 46 specialized modules spanning fundamental physical sciences, advanced metallurgy, solid state devices, continuum mechanics, computational algorithms, and industrial management.",
       };
     }
-    return SEMESTER_SUMMARIES.find((s) => s.semester === selectedSemester)!;
+    return SEMESTER_SUMMARIES.find((s) => s.semester === selectedSemester) ?? SEMESTER_SUMMARIES[0];
   }, [selectedSemester]);
 
   const toggleExpand = (code: string) => {
@@ -221,7 +236,7 @@ export default function CurriculumSection() {
         <div className="flex justify-center mb-8">
           <div className="inline-flex flex-wrap justify-center gap-1.5 p-1.5 rounded-2xl bg-card border border-border shadow-sm max-w-full">
             <button
-              onClick={() => setSelectedSemester("all")}
+              onClick={() => handleSemesterChange("all")}
               className={`px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 selectedSemester === "all"
                   ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
@@ -233,7 +248,7 @@ export default function CurriculumSection() {
             {[1, 2, 3, 4, 5, 6, 7, 8].map((sem) => (
               <button
                 key={sem}
-                onClick={() => setSelectedSemester(sem)}
+                onClick={() => handleSemesterChange(sem)}
                 className={`px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                   selectedSemester === sem
                     ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
@@ -455,7 +470,7 @@ export default function CurriculumSection() {
                       className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                       title="Open full module modal"
                     >
-                      Quick Modal
+                      Module Details
                     </button>
                   </div>
                 </div>
@@ -471,9 +486,12 @@ export default function CurriculumSection() {
             onClick={() => setModalModule(null)}
             role="dialog"
             aria-modal="true"
+            aria-labelledby="curriculum-modal-title"
           >
             <div
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-card border border-border shadow-2xl p-6 sm:p-8 space-y-6 text-foreground animate-scale-in"
+              ref={modalRef}
+              tabIndex={-1}
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-card border border-border shadow-2xl p-6 sm:p-8 space-y-6 text-foreground animate-scale-in focus:outline-none"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
@@ -492,7 +510,7 @@ export default function CurriculumSection() {
                       </span>
                     )}
                   </div>
-                  <h3 className="text-2xl font-extrabold text-foreground mt-1">
+                  <h3 id="curriculum-modal-title" className="text-2xl font-extrabold text-foreground mt-1">
                     {modalModule.title}
                   </h3>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">

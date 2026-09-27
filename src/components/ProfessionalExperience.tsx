@@ -5,7 +5,7 @@ import { TIMELINE_EXPERIENCE } from "@/data/portfolioData";
 import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 
 export default function ProfessionalExperience() {
-  const timelineRef = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,9 +19,8 @@ export default function ProfessionalExperience() {
       { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
     );
 
-    timelineRef.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
+    const items = containerRef.current?.querySelectorAll(".timeline-item");
+    items?.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
@@ -44,14 +43,11 @@ export default function ProfessionalExperience() {
         </div>
 
         {/* Vertical Timeline with Radiant Gradient Line */}
-        <div className="relative border-l-2 border-primary/30 ml-4 sm:ml-8 md:ml-12 space-y-12 before:absolute before:inset-y-0 before:-left-[2px] before:w-[2px] before:bg-gradient-to-b before:from-primary before:via-primary/50 before:to-transparent">
+        <div ref={containerRef} className="relative border-l-2 border-primary/30 ml-4 sm:ml-8 md:ml-12 space-y-12 before:absolute before:inset-y-0 before:-left-[2px] before:w-[2px] before:bg-gradient-to-b before:from-primary before:via-primary/50 before:to-transparent">
           {TIMELINE_EXPERIENCE.map((item, index) => (
             <div
               key={item.role}
-              ref={(el) => {
-                timelineRef.current[index] = el;
-              }}
-              className="relative pl-6 sm:pl-10 scroll-reveal"
+              className="relative pl-6 sm:pl-10 scroll-reveal timeline-item"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Timeline Indicator Dot with Ambient Pulse Ring */}
