@@ -44,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
+    <html lang="en" className={`scroll-smooth ${inter.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-background text-foreground antialiased selection:bg-blue-500/30">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <a 
