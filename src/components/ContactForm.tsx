@@ -13,20 +13,27 @@ export default function ContactForm() {
     setSubmitStatus("idle");
 
     const formData = new FormData(e.currentTarget);
-    const data = {
+    const payload = {
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
     };
 
     try {
-      // Simulate Formspree or equivalent API call
-      // Replace with actual endpoint: const response = await fetch("https://formspree.io/f/your-form-id", { ... })
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Endpoint simulation / integration:
+      if (process.env.NEXT_PUBLIC_CONTACT_ENDPOINT) {
+        await fetch(process.env.NEXT_PUBLIC_CONTACT_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      } else {
+        await new Promise((resolve) => setTimeout(resolve, 1200));
+      }
       
       setSubmitStatus("success");
       (e.target as HTMLFormElement).reset();
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

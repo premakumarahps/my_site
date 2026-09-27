@@ -8,18 +8,28 @@ export default function ProfessionalExperience() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const items = containerRef.current?.querySelectorAll(".timeline-item");
+
+    // Immediate check for in-viewport items
+    items?.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 50) {
+        el.classList.add("visible");
+      }
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.01, rootMargin: "50px 0px 50px 0px" }
     );
 
-    const items = containerRef.current?.querySelectorAll(".timeline-item");
     items?.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();

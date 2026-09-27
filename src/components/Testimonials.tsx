@@ -50,7 +50,7 @@ export default function Testimonials() {
                 <Star key={i} className="w-4 h-4 fill-emerald-500 text-emerald-500" />
               ))}
             </div>
-            <p className="text-foreground text-sm italic mb-6">"{testimonial.content}"</p>
+            <p className="text-foreground text-sm italic mb-6">&ldquo;{testimonial.content}&rdquo;</p>
             <div>
               <p className="font-semibold text-sm">{testimonial.name}</p>
               <p className="text-xs text-muted-foreground">{testimonial.role}</p>

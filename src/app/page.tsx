@@ -12,6 +12,7 @@ import Testimonials from "@/components/Testimonials";
 import InstructorSpotlight from "@/components/InstructorSpotlight";
 import CurriculumSection from "@/components/CurriculumSection";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+import siteConfig from "@/data/siteConfig.json";
 
 export default function Home() {
   return (
@@ -291,9 +292,8 @@ export default function Home() {
           </div>
 
           <div className="flex gap-4">
-            {/* Note: LinkedIn handle updated to match displayed name */}
             <Link
-              href="https://linkedin.com/in/eng-sandunpremakumara"
+              href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-all p-2 hover:bg-primary/10 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center border border-border/50"
@@ -302,9 +302,8 @@ export default function Home() {
               <span className="sr-only">LinkedIn</span>
               <Linkedin className="h-5 w-5" />
             </Link>
-            {/* TODO: Verify and update with preferred active contact email address */}
             <Link
-              href="mailto:premakumarahpsandun@gmail.com"
+              href={`mailto:${siteConfig.email}`}
               className="text-muted-foreground hover:text-primary transition-all p-2 hover:bg-primary/10 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center border border-border/50"
               aria-label="Email Contact"
             >
